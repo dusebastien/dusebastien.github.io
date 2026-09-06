@@ -1874,10 +1874,48 @@ footer {
   font-size: 0.82rem;
 }
 
+.private-access-form {
+  margin-top: 20px;
+}
 
+.private-access-form label {
+  display: block;
 
+  margin-bottom: 7px;
 
+  font-size: 0.76rem;
+  font-weight: 750;
+}
 
+.private-access-row {
+  display: flex;
+
+  gap: 9px;
+}
+
+.private-access-row input {
+  min-width: 0;
+  flex: 1;
+
+  min-height: 48px;
+
+  padding: 0 14px;
+
+  border: 1px solid var(--line);
+  border-radius: 13px;
+
+  background: var(--surface);
+  color: var(--text);
+
+  font: inherit;
+}
+
+.private-access-row input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+
+  border-color: var(--accent);
+}
 
 .private-access-message {
   margin: 10px 0 0;
@@ -1887,6 +1925,9 @@ footer {
   font-size: 0.74rem;
 }
 
+.private-access-message.is-warning {
+  color: var(--accent);
+}
 
 @media (max-width: 680px) {
   .project-modal-gallery {
@@ -1896,31 +1937,299 @@ footer {
   .project-gallery-item-featured {
     grid-column: auto;
   }
+
+  .private-access-row {
+    flex-direction: column;
+  }
+
+  .private-access-row .btn {
+    width: 100%;
+  }
 }
 
 
 /* =========================================================
-   ACCÈS PROTON DRIVE
+   ESPACE RECRUTEUR — CLOUDFLARE R2
    ========================================================= */
 
-.private-access-actions {
+.private-access-message.is-success {
+  color: var(--accent);
+}
+
+.private-access-row button:disabled,
+.private-access-row input:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.private-unlocked {
   margin-top: 20px;
+}
 
+.private-session-bar {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 
-  gap: 10px;
+  padding: 13px 14px;
+
+  border: 1px solid var(--line);
+  border-radius: 14px;
+
+  background: var(--surface);
 }
 
-.private-access-actions .btn {
-  width: fit-content;
+.private-session-bar > div {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+
+  font-size: 0.76rem;
 }
 
-.private-access-actions .private-access-message {
-  margin: 0;
+.private-session-dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 999px;
+
+  background: #22c55e;
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.12);
+}
+
+.private-session-text {
+  color: var(--muted);
+}
+
+.private-logout {
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+  color: var(--muted);
+
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 750;
+
+  cursor: pointer;
+}
+
+.private-logout:hover {
+  color: var(--text);
+}
+
+.private-project-documents {
+  margin-top: 18px;
+}
+
+.private-documents-label {
+  margin: 0 0 9px;
 
   color: var(--muted);
 
-  font-size: 0.74rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.private-documents-list {
+  display: grid;
+  gap: 9px;
+}
+
+.private-document-card {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+
+  padding: 11px 12px;
+
+  border: 1px solid var(--line);
+  border-radius: 14px;
+
+  background: var(--surface);
+  color: var(--text);
+
+  text-align: left;
+  font: inherit;
+
+  cursor: pointer;
+
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease;
+}
+
+.private-document-card:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+}
+
+.private-document-icon {
+  width: 46px;
+  height: 46px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 11px;
+
+  background: var(--surface-2);
+  color: var(--accent);
+
+  font-size: 0.62rem;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+}
+
+.private-document-info {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.private-document-info strong {
+  overflow: hidden;
+
+  font-size: 0.8rem;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.private-document-info span {
+  color: var(--muted);
+
+  font-size: 0.68rem;
+}
+
+.private-document-arrow {
+  color: var(--muted);
+
+  font-size: 1rem;
+}
+
+.private-empty-message,
+.private-documents-loading {
+  margin: 8px 0 0;
+
+  color: var(--muted);
+
+  font-size: 0.76rem;
+}
+
+.private-pdf-viewer {
+  margin-top: 20px;
+
+  border: 1px solid var(--line);
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  background: var(--surface);
+}
+
+.private-pdf-toolbar {
+  min-height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+
+  padding: 10px 13px;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.private-pdf-toolbar strong {
+  min-width: 0;
+
+  overflow: hidden;
+
+  font-size: 0.78rem;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.private-pdf-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.private-pdf-actions .text-button {
+  padding: 0;
+  border: 0;
+
+  background: transparent;
+
+  font-size: 0.7rem;
+}
+
+.private-pdf-frame-wrap {
+  height: min(70vh, 760px);
+  min-height: 480px;
+
+  background: #eceff3;
+}
+
+.private-pdf-frame {
+  width: 100%;
+}
+
+#privatePdfFrame {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  border: 0;
+
+  background: #fff;
+}
+
+@media (max-width: 680px) {
+  .private-session-bar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .private-document-card {
+    grid-template-columns: 40px minmax(0, 1fr) auto;
+  }
+
+  .private-document-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .private-pdf-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .private-pdf-actions {
+    justify-content: flex-start;
+  }
+
+  .private-pdf-frame-wrap {
+    min-height: 420px;
+    height: 65vh;
+  }
 }

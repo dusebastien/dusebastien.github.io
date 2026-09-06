@@ -262,9 +262,9 @@
           </p>
 
           <p>
-            Mon parcours combine projets académiques, expérience en laboratoire de recherche
-            et tutorat universitaire. Les rapports complets, diaporamas et documents
-            techniques de certains projets peuvent être transmis aux recruteurs sur demande.
+            Mon parcours combine projets académiques, travaux de simulation numérique réalisés en laboratoire
+            et tutorat universitaire. Les rapports complets, diaporamas et documents techniques
+            de certains projets sont accessibles aux recruteurs depuis un espace sécurisé.
           </p>
         </div>
 
@@ -999,10 +999,6 @@
         ></div>
       </div>
 
-      <!--
-        PROTOTYPE UNIQUEMENT :
-        aucun rapport privé n'est stocké dans GitHub Pages.
-      -->
       <section
         class="private-documents"
         id="privateDocuments"
@@ -1019,25 +1015,121 @@
             <p class="private-eyebrow">Espace recruteur</p>
             <h3>Documents complets</h3>
             <p>
-              Rapports, présentations et documents complémentaires
-              disponibles dans un espace Proton Drive protégé.
+              Rapports, présentations et documents complémentaires sécurisés.
             </p>
           </div>
         </div>
 
-        <div class="private-access-actions">
-          <a
-            class="btn btn-primary"
-            href="https://drive.proton.me/urls/ZCJA3PHDBR#wzo3rr4aMBrr"
-            target="_blank"
-            rel="noopener noreferrer"
+        <div id="privateLockedPanel">
+          <form
+            class="private-access-form"
+            id="privateAccessForm"
           >
-            Accéder aux documents
-          </a>
+            <label for="privatePassword">
+              Mot de passe recruteur
+            </label>
 
-          <p class="private-access-message">
-            L’accès est protégé par mot de passe directement sur Proton Drive.
-          </p>
+            <div class="private-access-row">
+              <input
+                id="privatePassword"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                placeholder="••••••••••••"
+                required
+              >
+
+              <button
+                class="btn btn-primary"
+                id="privateLoginButton"
+                type="submit"
+              >
+                Déverrouiller
+              </button>
+            </div>
+
+            <p
+              class="private-access-message"
+              id="privateAccessMessage"
+              aria-live="polite"
+            >
+              Une seule connexion donne accès aux documents pendant 2 heures.
+            </p>
+          </form>
+        </div>
+
+        <div
+          class="private-unlocked"
+          id="privateUnlockedPanel"
+          hidden
+        >
+          <div class="private-session-bar">
+            <div>
+              <span class="private-session-dot" aria-hidden="true"></span>
+              <strong>Accès recruteur déverrouillé</strong>
+              <span class="private-session-text">· session valable jusqu’à 2 h</span>
+            </div>
+
+            <button
+              class="private-logout"
+              id="privateLogoutButton"
+              type="button"
+            >
+              Se déconnecter
+            </button>
+          </div>
+
+          <div class="private-project-documents">
+            <p class="private-documents-label">Documents de ce projet</p>
+
+            <div
+              class="private-documents-list"
+              id="privateDocumentsList"
+            ></div>
+
+            <p
+              class="private-empty-message"
+              id="privateEmptyMessage"
+              hidden
+            >
+              Aucun document n’est encore disponible pour ce projet.
+            </p>
+          </div>
+
+          <div
+            class="private-pdf-viewer"
+            id="privatePdfViewer"
+            hidden
+          >
+            <div class="private-pdf-toolbar">
+              <strong id="privatePdfTitle">Document</strong>
+
+              <div class="private-pdf-actions">
+                <button
+                  class="text-button"
+                  id="privatePdfOpenButton"
+                  type="button"
+                >
+                  Ouvrir dans un nouvel onglet
+                </button>
+
+                <button
+                  class="text-button"
+                  id="privatePdfCloseButton"
+                  type="button"
+                >
+                  Fermer le document
+                </button>
+              </div>
+            </div>
+
+            <div class="private-pdf-frame-wrap">
+              <iframe
+                id="privatePdfFrame"
+                title="Lecteur de document"
+              ></iframe>
+            </div>
+          </div>
         </div>
       </section>
 

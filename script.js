@@ -51,6 +51,7 @@ updateThemeButton();
 
 const projectData = {
  combustion: {
+ documentFolder: "Combustion",
  title: "Simulation numérique d’une flamme hydrogène/air",
  meta: "Avril 2026 · Master · Sorbonne Université",
  text: "Étude numérique sous MATLAB de la combustion d’un mélange hydrogène/air. Le projet combine une approche thermodynamique, l’analyse des propriétés de transport, la cinétique chimique et une modélisation de flamme monodimensionnelle afin de caractériser le comportement d’une flamme prémélangée.",
@@ -80,36 +81,43 @@ const projectData = {
  skills: ["MATLAB", "Combustion", "Thermodynamique", "Cinétique chimique", "Transport", "Flamme 1D", "Hydrogène"]
  },
  thermo: {
+ documentFolder: "Calcul Scientifique",
  title: "Modélisation numérique des propriétés thermodynamiques et des ondes de choc",
  text: "Développement d’un programme modulaire pour modéliser les propriétés thermodynamiques de gaz à capacités calorifiques variables et simuler des ondes de choc normales. Le projet mobilise notamment la méthode de Newton pour calculer température, pression et masse volumique.",
  skills: ["Thermodynamique", "Ondes de choc", "Méthode de Newton", "Simulation numérique"]
  },
  phase: {
+ documentFolder: "Méthodes numériques pour la dynamique",
  title: "Simulation numérique de l’équation de diffusion thermique 2D avec changement de phase",
  text: "Modélisation de la solidification avec front diffus en 2D à l’aide d’une formulation enthalpique. Implémentation en Python pour étudier la diffusion thermique et l’évolution du front de phase.",
  skills: ["Python", "Différences finies", "Discrétisation", "Thermique"]
  },
  waves: {
+ documentFolder: "Vagues infinies 2D",
  title: "Simulation de vagues infinies en 2D",
  text: "Simulation de la propagation d’ondes dans un domaine bidimensionnel représentant une étendue d’eau. L’équation des ondes est résolue numériquement par différences finies avec des conditions aux limites périodiques afin de simuler une propagation continue en pleine mer.",
  skills: ["Python", "Équation des ondes", "Différences finies", "Conditions périodiques"]
  },
  naca: {
+ documentFolder: "NACA Fluides L3",
  title: "Écoulement autour d’un profil NACA0012 et comparaison aux mesures expérimentales",
  text: "Étude de validation CFD sur un profil NACA0012 à Mach 0,82. Post-traitement sous ParaView, comparaison des coefficients de pression et de traînée avec les données expérimentales, et analyse de l’apparition des ondes de choc et des zones de séparation.",
  skills: ["CFD", "ParaView", "Aérodynamique", "Validation expérimentale"]
  },
  bemt: {
+ documentFolder: "Eoliennes",
  title: "Analyse BEMT d’éoliennes HAWT",
  text: "Étude comparative et optimisation des performances aérodynamiques de trois éoliennes HAWT par la théorie BEMT. Analyse des courbes de puissance, confrontation aux données expérimentales et étude paramétrique de géométries optimisées.",
  skills: ["BEMT", "Aérodynamique", "Optimisation", "Analyse de données"]
  },
  robot: {
+ documentFolder: "Robot Humanoide",
  title: "Robot humanoïde marcheur",
  text: "Conception assistée par ordinateur d’un humanoïde marcheur, suivie de simulations de mouvement pour valider une démarche équilibrée et une mobilité fonctionnelle.",
  skills: ["SolidWorks", "CAO", "Simulation mécanique"]
  },
  pacman: {
+ documentFolder: "Pacman",
  title: "Pacman en Fortran",
  text: "Développement en équipe d’une version du jeu Pac-Man codée en Fortran, avec navigation dans un labyrinthe, gestion des fantômes et collecte de points.",
  skills: ["Fortran", "Algorithmique", "Programmation scientifique"]
@@ -125,6 +133,27 @@ const modalProjectMeta = document.getElementById("modalProjectMeta");
 const modalGallery = document.getElementById("modalGallery");
 const modalHighlights = document.getElementById("modalHighlights");
 const modalHighlightsList = document.getElementById("modalHighlightsList");
+const privateAccessForm = document.getElementById("privateAccessForm");
+const privatePassword = document.getElementById("privatePassword");
+const privateAccessMessage = document.getElementById("privateAccessMessage");
+const privateLockedPanel = document.getElementById("privateLockedPanel");
+const privateUnlockedPanel = document.getElementById("privateUnlockedPanel");
+const privateLoginButton = document.getElementById("privateLoginButton");
+const privateLogoutButton = document.getElementById("privateLogoutButton");
+const privateDocumentsList = document.getElementById("privateDocumentsList");
+const privateEmptyMessage = document.getElementById("privateEmptyMessage");
+const privatePdfViewer = document.getElementById("privatePdfViewer");
+const privatePdfFrame = document.getElementById("privatePdfFrame");
+const privatePdfTitle = document.getElementById("privatePdfTitle");
+const privatePdfCloseButton = document.getElementById("privatePdfCloseButton");
+const privatePdfOpenButton = document.getElementById("privatePdfOpenButton");
+
+const DOCUMENTS_API = "https://portfolio-documents-api.seblasteu.workers.dev";
+const DOCUMENTS_TOKEN_KEY = "sebastien-portfolio-docs-token";
+
+let currentProject = null;
+let currentPdfObjectUrl = null;
+let documentsCache = null;
 
 
 function openModal(project) {
@@ -187,6 +216,15 @@ function openModal(project) {
     modalHighlights.hidden = true;
   }
 
+  currentProject = project;
+  closePdfViewer();
+
+  if (privatePassword) {
+    privatePassword.value = "";
+  }
+
+  refreshPrivateAccessForProject();
+
   modal.classList.add("is-open");
   modal.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
@@ -195,6 +233,7 @@ function openModal(project) {
 
 
 function closeModal() {
+  closePdfViewer();
   modal.classList.remove("is-open");
   modal.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";
@@ -212,6 +251,392 @@ document.querySelectorAll("[data-project]").forEach(button => {
 document.querySelectorAll("[data-close-modal]").forEach(element => {
  element.addEventListener("click", closeModal);
 });
+
+// =========================================================
+// ACCÈS RECRUTEUR — CLOUDFLARE WORKER + R2
+// =========================================================
+
+function getDocumentsToken() {
+  try {
+    return sessionStorage.getItem(DOCUMENTS_TOKEN_KEY) || "";
+  } catch (error) {
+    return "";
+  }
+}
+
+function setDocumentsToken(token) {
+  try {
+    if (token) {
+      sessionStorage.setItem(DOCUMENTS_TOKEN_KEY, token);
+    } else {
+      sessionStorage.removeItem(DOCUMENTS_TOKEN_KEY);
+    }
+  } catch (error) {}
+}
+
+function setAccessMessage(message, type = "") {
+  if (!privateAccessMessage) return;
+
+  privateAccessMessage.textContent = message;
+  privateAccessMessage.classList.remove("is-warning", "is-success");
+
+  if (type) {
+    privateAccessMessage.classList.add(type);
+  }
+}
+
+function setPrivateLoading(loading) {
+  if (!privateLoginButton || !privatePassword) return;
+
+  privateLoginButton.disabled = loading;
+  privatePassword.disabled = loading;
+  privateLoginButton.textContent = loading ? "Connexion…" : "Déverrouiller";
+}
+
+async function apiRequest(path, options = {}) {
+  const headers = new Headers(options.headers || {});
+  const token = getDocumentsToken();
+
+  if (token) {
+    headers.set("Authorization", `Bearer ${token}`);
+  }
+
+  return fetch(`${DOCUMENTS_API}${path}`, {
+    ...options,
+    headers,
+  });
+}
+
+async function validateSession() {
+  const token = getDocumentsToken();
+
+  if (!token) return false;
+
+  try {
+    const response = await apiRequest("/api/session", {
+      method: "GET",
+    });
+
+    if (!response.ok) {
+      setDocumentsToken("");
+      documentsCache = null;
+      return false;
+    }
+
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+
+function showLockedPanel() {
+  if (privateLockedPanel) privateLockedPanel.hidden = false;
+  if (privateUnlockedPanel) privateUnlockedPanel.hidden = true;
+
+  closePdfViewer();
+}
+
+function showUnlockedPanel() {
+  if (privateLockedPanel) privateLockedPanel.hidden = true;
+  if (privateUnlockedPanel) privateUnlockedPanel.hidden = false;
+}
+
+async function refreshPrivateAccessForProject() {
+  if (!privateLockedPanel || !privateUnlockedPanel) return;
+
+  if (!getDocumentsToken()) {
+    showLockedPanel();
+    setAccessMessage(
+      "Une seule connexion donne accès aux documents pendant 2 heures."
+    );
+    return;
+  }
+
+  const valid = await validateSession();
+
+  if (!valid) {
+    showLockedPanel();
+    setAccessMessage(
+      "La session a expiré. Saisis de nouveau le mot de passe.",
+      "is-warning"
+    );
+    return;
+  }
+
+  showUnlockedPanel();
+  await renderProjectDocuments();
+}
+
+async function loadDocuments() {
+  if (documentsCache) {
+    return documentsCache;
+  }
+
+  const response = await apiRequest("/api/documents", {
+    method: "GET",
+  });
+
+  if (response.status === 401) {
+    setDocumentsToken("");
+    throw new Error("SESSION_EXPIRED");
+  }
+
+  if (!response.ok) {
+    throw new Error("DOCUMENT_LIST_ERROR");
+  }
+
+  const data = await response.json();
+
+  documentsCache = Array.isArray(data.documents)
+    ? data.documents.filter(document => document.key && !document.key.endsWith("/"))
+    : [];
+
+  return documentsCache;
+}
+
+function prettifyFileName(key) {
+  const fileName = key.split("/").pop() || key;
+
+  return fileName
+    .replace(/\.[^.]+$/, "")
+    .replace(/[-_]+/g, " ")
+    .replace(/\b\w/g, letter => letter.toUpperCase());
+}
+
+function getFileExtension(key) {
+  const match = key.match(/\.([^.]+)$/);
+  return match ? match[1].toUpperCase() : "FICHIER";
+}
+
+function formatFileSize(bytes) {
+  if (!Number.isFinite(bytes) || bytes <= 0) return "";
+
+  if (bytes < 1024 * 1024) {
+    return `${Math.max(1, Math.round(bytes / 1024))} Ko`;
+  }
+
+  return `${(bytes / (1024 * 1024)).toFixed(1).replace(".", ",")} Mo`;
+}
+
+async function renderProjectDocuments() {
+  if (!privateDocumentsList || !privateEmptyMessage || !currentProject) {
+    return;
+  }
+
+  privateDocumentsList.replaceChildren();
+  privateEmptyMessage.hidden = true;
+
+  const loading = document.createElement("p");
+  loading.className = "private-documents-loading";
+  loading.textContent = "Chargement des documents…";
+  privateDocumentsList.appendChild(loading);
+
+  try {
+    const documents = await loadDocuments();
+    const folder = currentProject.documentFolder;
+
+    const projectDocuments = folder
+      ? documents.filter(document => document.key.startsWith(`${folder}/`))
+      : [];
+
+    privateDocumentsList.replaceChildren();
+
+    if (!projectDocuments.length) {
+      privateEmptyMessage.hidden = false;
+      return;
+    }
+
+    projectDocuments.forEach(document => {
+      const button = document.createElement("button");
+      button.className = "private-document-card";
+      button.type = "button";
+
+      const icon = document.createElement("span");
+      icon.className = "private-document-icon";
+      icon.setAttribute("aria-hidden", "true");
+      icon.textContent = getFileExtension(document.key);
+
+      const info = document.createElement("span");
+      info.className = "private-document-info";
+
+      const title = document.createElement("strong");
+      title.textContent = prettifyFileName(document.key);
+
+      const meta = document.createElement("span");
+      const size = formatFileSize(document.size);
+      meta.textContent = size
+        ? `${getFileExtension(document.key)} · ${size}`
+        : getFileExtension(document.key);
+
+      info.append(title, meta);
+
+      const arrow = document.createElement("span");
+      arrow.className = "private-document-arrow";
+      arrow.setAttribute("aria-hidden", "true");
+      arrow.textContent = "↗";
+
+      button.append(icon, info, arrow);
+
+      button.addEventListener("click", () => {
+        openPrivateDocument(document);
+      });
+
+      privateDocumentsList.appendChild(button);
+    });
+  } catch (error) {
+    privateDocumentsList.replaceChildren();
+
+    if (error.message === "SESSION_EXPIRED") {
+      showLockedPanel();
+      setAccessMessage(
+        "La session a expiré. Saisis de nouveau le mot de passe.",
+        "is-warning"
+      );
+      return;
+    }
+
+    const message = document.createElement("p");
+    message.className = "private-empty-message";
+    message.textContent =
+      "Impossible de charger les documents pour le moment.";
+    privateDocumentsList.appendChild(message);
+  }
+}
+
+async function openPrivateDocument(document) {
+  if (!privatePdfViewer || !privatePdfFrame || !privatePdfTitle) return;
+
+  closePdfViewer(false);
+
+  privatePdfViewer.hidden = false;
+  privatePdfTitle.textContent = "Chargement du document…";
+  privatePdfFrame.removeAttribute("src");
+
+  try {
+    const response = await apiRequest(
+      `/api/file/${encodeURIComponent(document.key)}`,
+      { method: "GET" }
+    );
+
+    if (response.status === 401) {
+      setDocumentsToken("");
+      documentsCache = null;
+      showLockedPanel();
+      setAccessMessage(
+        "La session a expiré. Saisis de nouveau le mot de passe.",
+        "is-warning"
+      );
+      return;
+    }
+
+    if (!response.ok) {
+      throw new Error("FILE_ERROR");
+    }
+
+    const blob = await response.blob();
+    currentPdfObjectUrl = URL.createObjectURL(blob);
+
+    privatePdfTitle.textContent = prettifyFileName(document.key);
+    privatePdfFrame.src = currentPdfObjectUrl;
+
+    privatePdfViewer.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  } catch (error) {
+    privatePdfTitle.textContent = "Document indisponible";
+    privatePdfFrame.removeAttribute("src");
+  }
+}
+
+function closePdfViewer(hide = true) {
+  if (currentPdfObjectUrl) {
+    URL.revokeObjectURL(currentPdfObjectUrl);
+    currentPdfObjectUrl = null;
+  }
+
+  if (privatePdfFrame) {
+    privatePdfFrame.removeAttribute("src");
+  }
+
+  if (privatePdfViewer && hide) {
+    privatePdfViewer.hidden = true;
+  }
+}
+
+privateAccessForm?.addEventListener("submit", async event => {
+  event.preventDefault();
+
+  const password = privatePassword?.value || "";
+
+  if (!password.trim()) {
+    setAccessMessage("Saisis le mot de passe recruteur.", "is-warning");
+    privatePassword?.focus();
+    return;
+  }
+
+  setPrivateLoading(true);
+  setAccessMessage("Vérification du mot de passe…");
+
+  try {
+    const response = await fetch(`${DOCUMENTS_API}/api/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ password }),
+    });
+
+    const data = await response.json().catch(() => ({}));
+
+    if (!response.ok || !data.token) {
+      setAccessMessage(
+        data.message || "Mot de passe incorrect.",
+        "is-warning"
+      );
+      privatePassword?.select();
+      return;
+    }
+
+    setDocumentsToken(data.token);
+    documentsCache = null;
+
+    if (privatePassword) {
+      privatePassword.value = "";
+    }
+
+    showUnlockedPanel();
+    await renderProjectDocuments();
+  } catch (error) {
+    setAccessMessage(
+      "Impossible de joindre l’espace sécurisé. Réessaie dans un instant.",
+      "is-warning"
+    );
+  } finally {
+    setPrivateLoading(false);
+  }
+});
+
+privateLogoutButton?.addEventListener("click", () => {
+  setDocumentsToken("");
+  documentsCache = null;
+  showLockedPanel();
+
+  setAccessMessage(
+    "Session fermée. Saisis le mot de passe pour accéder aux documents."
+  );
+});
+
+privatePdfCloseButton?.addEventListener("click", () => {
+  closePdfViewer();
+});
+
+privatePdfOpenButton?.addEventListener("click", () => {
+  if (currentPdfObjectUrl) {
+    window.open(currentPdfObjectUrl, "_blank", "noopener,noreferrer");
+  }
+});
+
 
 // =========================================================
 // EXPÉRIENCE — STAGE M1 CNRS / FAST
