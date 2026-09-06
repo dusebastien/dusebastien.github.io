@@ -211,9 +211,10 @@
               </div>
 
               <div>
-                <strong>Aéronautique & Énergétique</strong>
+                <strong>Aéronautique &amp; Énergétique</strong>
                 <span>Secteurs visés</span>
               </div>
+            </div>
 
 
             <div class="mini-stat">
@@ -294,7 +295,10 @@
         <div class="experience-grid">
 
           <!-- Stage M1 -->
-          <article class="experience-card">
+          <article
+            class="experience-card experience-clickable"
+            data-experience-card="cnrs"
+          >
 
             <div class="experience-header">
 
@@ -346,6 +350,16 @@
               <span>Mécanique des fluides</span>
               <span>2D / 3D</span>
               <span>Recherche</span>
+            </div>
+
+            <div class="experience-actions">
+              <button
+                class="text-button experience-more"
+                type="button"
+                data-experience="cnrs"
+              >
+                En savoir plus
+              </button>
             </div>
 
           </article>
@@ -1034,6 +1048,60 @@
       <div class="modal-note">
         🔒 Les rapports complets et documents associés peuvent être
         transmis aux recruteurs sur demande.
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- =========================================================
+       MODALE EXPÉRIENCE — STAGE CNRS / FAST
+       ========================================================= -->
+  <div
+    class="modal"
+    id="experienceModal"
+    aria-hidden="true"
+  >
+
+    <div
+      class="modal-backdrop"
+      data-close-experience
+    ></div>
+
+    <div
+      class="modal-dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="experienceModalTitle"
+    >
+
+      <button
+        class="modal-close"
+        type="button"
+        aria-label="Fermer"
+        data-close-experience
+      >
+        ×
+      </button>
+
+      <p class="section-kicker">
+        Expérience professionnelle
+      </p>
+
+      <h2 id="experienceModalTitle">
+        Stage M1 — CNRS / Laboratoire FAST
+      </h2>
+
+      <p id="experienceModalText"></p>
+
+      <div
+        id="experienceModalSkills"
+        class="modal-skills"
+      ></div>
+
+      <div class="modal-note">
+        Stage de recherche réalisé au laboratoire FAST du CNRS à Orsay,
+        encadré par Georg Dietze et Sophie Mergui.
       </div>
 
     </div>

@@ -1183,7 +1183,7 @@ html[data-theme="dark"] .experience-logo {
   Rend toute la carte cliquable SANS modifier ton script.js.
   Le clic déclenche le bouton "En savoir plus".
 */
-.text-button::after {
+.project-card .text-button::after {
   content: "";
 
   position: absolute;
@@ -1191,6 +1191,42 @@ html[data-theme="dark"] .experience-logo {
   inset: 0;
 
   z-index: 2;
+}
+
+
+
+
+/* =========================================================
+   STAGE CNRS CLIQUABLE
+   ========================================================= */
+
+.experience-clickable {
+  position: relative;
+  cursor: pointer;
+}
+
+.experience-actions {
+  margin-top: auto;
+  padding-top: 22px;
+}
+
+.experience-more {
+  position: relative;
+  z-index: 4;
+
+  color: var(--text);
+
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.experience-more:hover {
+  color: var(--accent);
+}
+
+/* Petit indicateur visuel quand on survole la carte CNRS */
+.experience-clickable:hover .experience-more {
+  color: var(--accent);
 }
 
 
