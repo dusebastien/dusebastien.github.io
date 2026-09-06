@@ -1,317 +1,462 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio de Sébastien — étudiant en Master 2, simulation numérique, aérodynamique, mécanique des fluides et programmation scientifique.">
-  <title>Sébastien — Portfolio ingénierie</title>
+  <meta name="description" content="Portfolio de Sébastien Du — étudiant en Master 2 à Sorbonne Université, simulation numérique, aérodynamique, thermodynamique et programmation scientifique.">
+  <title>Sébastien Du — Portfolio</title>
+
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem("sebastien-portfolio-theme");
+        const prefersDark = window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.theme = savedTheme || (prefersDark ? "dark" : "light");
+      } catch (e) {
+        document.documentElement.dataset.theme = "light";
+      }
+    })();
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script>
-    (() => {
-      const saved = localStorage.getItem("portfolio-theme");
-      const systemDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-      document.documentElement.dataset.theme = saved || (systemDark ? "dark" : "light");
-    })();
-  </script>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<header class="site-header">
-  <div class="container nav">
-    <a class="brand" href="#accueil">Sébastien<span>.</span></a>
-    <div class="nav-actions">
-      <button class="theme-toggle" type="button" aria-label="Changer le thème" title="Changer le thème">
-        <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
-        <span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span>
-      </button>
-      <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
-    </div>
-    <nav class="nav-links">
-      <a href="#accueil">Accueil</a>
-      <a href="#apropos">À propos</a>
-      <a href="#projets">Projets</a>
-      <a href="#competences">Compétences</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#accueil">Sébastien<span>.</span></a>
 
-<main>
-<section class="hero" id="accueil">
-  <div class="container hero-grid">
-    <div class="hero-copy">
-      <p class="eyebrow">Étudiant en Master 2 · Sciences de l’ingénieur</p>
-      <h1>Simulation numérique, aérodynamique et mécanique.</h1>
-      <p class="hero-text">
-        Mon portfolio retrace chronologiquement mes projets, des premiers développements
-        en Python jusqu’aux simulations numériques, études aérodynamiques et modèles
-        thermodynamiques réalisés en Master.
-      </p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#projets">Découvrir mes projets</a>
-        <a class="btn btn-secondary" href="assets/CV-Sebastien.pdf" target="_blank" rel="noopener">Voir mon CV</a>
-      </div>
-      <div class="social-links">
-        <a href="https://github.com/dusebastien" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/sebastiendu/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="mailto:Sebastien.Du@etu.sorbonne-universite.fr">E-mail</a>
+      <nav class="nav-links" id="mainNav">
+        <a href="#accueil">Accueil</a>
+        <a href="#apropos">À propos</a>
+        <a href="#projets">Projets</a>
+        <a href="#competences">Compétences</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" type="button" aria-label="Activer le mode sombre" title="Changer le thème">
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mainNav">
+          ☰
+        </button>
       </div>
     </div>
+  </header>
 
-    <aside class="hero-card">
-      <div class="avatar">S</div>
-      <p class="hero-card-label">Domaines</p>
-      <h2>Sébastien</h2>
-      <p>Simulation numérique · Mécanique des fluides · Aérodynamique · Thermodynamique</p>
-      <div class="mini-stats">
-        <div><strong>9</strong><span>projets</span></div>
-        <div><strong>2020 → 2026</strong><span>progression</span></div>
-        <div><strong>M2</strong><span>niveau actuel</span></div>
+  <main>
+    <section class="hero" id="accueil">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Étudiant en Master 2 · Sorbonne Université</p>
+          <h1>Simulation numérique, mécanique et projets scientifiques.</h1>
+          <p class="hero-text">
+            Bienvenue sur mon portfolio. J’y présente mes projets de programmation,
+            modélisation et simulation numérique, de mes premiers travaux jusqu’à mon Master.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projets">Voir mes projets</a>
+            <a class="btn btn-secondary" href="assets/CV-Sebastien.pdf" target="_blank" rel="noopener">
+              Voir mon CV
+            </a>
+          </div>
+
+          <div class="social-links">
+            <a href="https://github.com/dusebastien" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://www.linkedin.com/in/sebastiendu/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="mailto:Sebastien.Du@etu.sorbonne-universite.fr">E-mail</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="avatar">SD</div>
+          <p class="hero-card-label">Profil</p>
+          <h2>Sébastien Du</h2>
+          <p>Simulation numérique · Aérodynamique · Thermodynamique · Programmation scientifique</p>
+
+          <div class="mini-stats">
+            <div>
+              <strong>9</strong>
+              <span>projets</span>
+            </div>
+            <div>
+              <strong>2020 → 2026</strong>
+              <span>progression</span>
+            </div>
+            <div>
+              <strong>M2</strong>
+              <span>niveau actuel</span>
+            </div>
+          </div>
+        </div>
       </div>
-    </aside>
-  </div>
-</section>
+    </section>
 
-<section class="section" id="apropos">
-  <div class="container two-columns">
-    <div>
-      <p class="section-kicker">À propos</p>
-      <h2 class="section-title">Une progression technique construite dans le temps.</h2>
-    </div>
-    <div class="about-text">
-      <p>
-        Depuis mes premiers projets de programmation, j’ai progressivement orienté mon parcours
-        vers la modélisation et la simulation numérique appliquées aux sciences de l’ingénieur.
-      </p>
-      <p>
-        Les projets ci-dessous sont classés du plus récent au plus ancien. Les rapports complets
-        et certains documents techniques restent disponibles sur demande pour les recruteurs.
-      </p>
-    </div>
-  </div>
-</section>
+    <section class="section" id="apropos">
+      <div class="container two-columns">
+        <div>
+          <p class="section-kicker">À propos</p>
+          <h2 class="section-title">Un parcours construit projet après projet.</h2>
+        </div>
 
-<section class="section section-muted" id="projets">
-  <div class="container">
-    <div class="section-heading">
-      <div>
-        <p class="section-kicker">2026 → 2020</p>
-        <h2 class="section-title">Mes projets</h2>
+        <div class="about-text">
+          <p>
+            Je suis étudiant en Master 2 à Sorbonne Université. Au fil de mon parcours,
+            j’ai progressivement orienté mes projets vers la simulation numérique,
+            la mécanique des fluides, l’aérodynamique et la thermodynamique.
+          </p>
+          <p>
+            Les projets ci-dessous sont présentés du plus récent au plus ancien.
+            Les rapports complets, diaporamas et documents techniques peuvent être
+            transmis aux recruteurs sur demande.
+          </p>
+        </div>
       </div>
-      <p class="section-intro">
-        Chronologie décroissante : les projets les plus récents apparaissent en premier.
-      </p>
+    </section>
+
+    <section class="section section-muted" id="projets">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">2026 → 2020</p>
+            <h2 class="section-title">Mes projets</h2>
+          </div>
+          <p class="section-intro">
+            Une sélection chronologique de projets académiques, numériques et scientifiques.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+
+          <article class="project-card">
+            <div class="project-visual thermo">
+              <span>THERMODYNAMIQUE</span>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span>Fév. 2026</span>
+                <span>Master</span>
+              </div>
+              <h3>Propriétés thermodynamiques et ondes de choc</h3>
+              <p>
+                Programme modulaire pour modéliser des gaz à capacités calorifiques variables
+                et simuler des ondes de choc normales.
+              </p>
+              <div class="tags">
+                <span>Thermodynamique</span>
+                <span>Newton</span>
+                <span>Ondes de choc</span>
+              </div>
+              <div class="project-actions">
+                <a href="#contact">Rapport sur demande →</a>
+                <button class="text-button" data-project="thermo">En savoir plus</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-visual phase">
+              <span>THERMIQUE 2D</span>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span>Déc. 2025</span>
+                <span>Master</span>
+              </div>
+              <h3>Diffusion thermique 2D avec changement de phase</h3>
+              <p>
+                Modélisation et simulation de la solidification avec front diffus
+                à l’aide d’une formulation enthalpique.
+              </p>
+              <div class="tags">
+                <span>Python</span>
+                <span>Différences finies</span>
+                <span>Discrétisation</span>
+              </div>
+              <div class="project-actions">
+                <a href="#contact">Rapport sur demande →</a>
+                <button class="text-button" data-project="phase">En savoir plus</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card project-card-featured">
+            <div class="project-visual waves">
+              <div class="featured-label">PROJET MIS EN AVANT</div>
+              <span>ONDES · PYTHON</span>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span>Avr.–mai 2025</span>
+                <span>Master</span>
+              </div>
+              <h3>Simulation de vagues infinies en 2D</h3>
+              <p>
+                Résolution numérique de l’équation des ondes en 2D avec conditions
+                périodiques pour simuler une propagation continue en pleine mer.
+              </p>
+              <div class="tags">
+                <span>Python</span>
+                <span>Équation des ondes</span>
+                <span>Différences finies</span>
+              </div>
+              <div class="project-actions">
+                <a href="#contact">Médias & rapport sur demande →</a>
+                <button class="text-button" data-project="waves">En savoir plus</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-visual naca">
+              <span>CFD · MACH 0,82</span>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span>Avr.–mai 2025</span>
+                <span>Master</span>
+              </div>
+              <h3>Écoulement autour d’un profil NACA0012</h3>
+              <p>
+                Validation CFD en régime transsonique avec comparaison aux mesures
+                expérimentales et analyse des ondes de choc.
+              </p>
+              <div class="tags">
+                <span>CFD</span>
+                <span>ParaView</span>
+                <span>Aérodynamique</span>
+              </div>
+              <div class="project-actions">
+                <a href="#contact">Rapport sur demande →</a>
+                <button class="text-button" data-project="naca">En savoir plus</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-visual bemt">
+              <span>ÉOLIENNES · BEMT</span>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span>Avr.–mai 2025</span>
+                <span>Master</span>
+              </div>
+              <h3>Analyse BEMT d’éoliennes HAWT</h3>
+              <p>
+                Étude comparative, validation et optimisation des performances
+                aérodynamiques de plusieurs rotors HAWT.
+              </p>
+              <div class="tags">
+                <span>BEMT</span>
+                <span>Optimisation</span>
+                <span>Aérodynamique</span>
+              </div>
+              <div class="project-actions">
+                <a href="#contact">Rapport sur demande →</a>
+                <button class="text-button" data-project="bemt">En savoir plus</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-visual robot">
+              <span>CAO · ROBOTIQUE</span>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span>Nov. 2023–janv. 2024</span>
+                <span>Licence</span>
+              </div>
+              <h3>Robot humanoïde marcheur</h3>
+              <p>
+                Conception CAO d’un humanoïde et validation de sa démarche
+                à travers des simulations de mouvement.
+              </p>
+              <div class="tags">
+                <span>SolidWorks</span>
+                <span>CAO</span>
+                <span>Simulation</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/dusebastien" target="_blank" rel="noopener">Voir GitHub →</a>
+                <button class="text-button" data-project="robot">En savoir plus</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-visual pacman">
+              <span>FORTRAN</span>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span>Oct.–déc. 2023</span>
+                <span>Licence</span>
+              </div>
+              <h3>Pacman en Fortran</h3>
+              <p>
+                Développement en équipe d’une version de Pac-Man en Fortran :
+                labyrinthe, déplacements, fantômes et système de points.
+              </p>
+              <div class="tags">
+                <span>Fortran</span>
+                <span>Algorithmique</span>
+                <span>Programmation</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/dusebastien" target="_blank" rel="noopener">Voir GitHub →</a>
+                <button class="text-button" data-project="pacman">En savoir plus</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-visual fall">
+              <span>MÉCANIQUE · PYTHON</span>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span>Oct.–déc. 2022</span>
+                <span>Projet numérique</span>
+              </div>
+              <h3>Projet numérique — Chute libre</h3>
+              <p>
+                Simulation en Python de la chute libre de Felix Baumgartner avec
+                modélisation mécanique et prise en compte de la résistance de l’air.
+              </p>
+              <div class="tags">
+                <span>Python</span>
+                <span>Mécanique</span>
+                <span>Modélisation</span>
+              </div>
+              <div class="project-actions">
+                <a href="#contact">Diaporama sur demande →</a>
+                <button class="text-button" data-project="fall">En savoir plus</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-visual converter">
+              <span>PYTHON · TKINTER</span>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span>Mai–juin 2020</span>
+                <span>Première · NSI</span>
+              </div>
+              <h3>Convertisseur universel</h3>
+              <p>
+                Interface Python/Tkinter permettant de convertir distances, durées,
+                masses, puissances, températures et volumes.
+              </p>
+              <div class="tags">
+                <span>Python</span>
+                <span>Tkinter</span>
+                <span>PyCharm</span>
+              </div>
+              <div class="project-actions">
+                <a href="#contact">Projet historique →</a>
+                <button class="text-button" data-project="converter">En savoir plus</button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="competences">
+      <div class="container">
+        <p class="section-kicker">Compétences</p>
+        <h2 class="section-title">Ce que mes projets mettent en pratique.</h2>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <span class="skill-number">01</span>
+            <h3>Simulation numérique</h3>
+            <p>Différences finies, discrétisation, équations aux dérivées partielles et méthodes itératives.</p>
+          </div>
+
+          <div class="skill-card">
+            <span class="skill-number">02</span>
+            <h3>Aérodynamique & fluides</h3>
+            <p>CFD, BEMT, profils aérodynamiques, écoulements transsoniques et ondes de choc.</p>
+          </div>
+
+          <div class="skill-card">
+            <span class="skill-number">03</span>
+            <h3>Programmation scientifique</h3>
+            <p>Python, Fortran, modélisation physique, traitement et interprétation des résultats.</p>
+          </div>
+
+          <div class="skill-card">
+            <span class="skill-number">04</span>
+            <h3>Outils d’ingénierie</h3>
+            <p>ParaView, SolidWorks, CAO, PyCharm, Spyder et outils de visualisation scientifique.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-contact" id="contact">
+      <div class="container contact-card">
+        <div>
+          <p class="section-kicker">Contact</p>
+          <h2>Intéressé par mon profil ?</h2>
+          <p>
+            Je peux transmettre aux recruteurs les rapports complets, présentations,
+            animations et documents techniques de certains projets.
+          </p>
+          <div class="contact-details">
+            <a href="mailto:Sebastien.Du@etu.sorbonne-universite.fr">Sebastien.Du@etu.sorbonne-universite.fr</a>
+            <a href="https://www.linkedin.com/in/sebastiendu/" target="_blank" rel="noopener">linkedin.com/in/sebastiendu</a>
+          </div>
+        </div>
+
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="mailto:Sebastien.Du@etu.sorbonne-universite.fr">Me contacter</a>
+          <a class="btn btn-secondary" href="https://www.linkedin.com/in/sebastiendu/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <p>© <span id="year"></span> Sébastien Du. Portfolio personnel.</p>
+      <a href="#accueil">Retour en haut ↑</a>
     </div>
+  </footer>
 
-    <div class="timeline">
-
-      <article class="project-row featured">
-        <div class="project-date">FÉV. 2026</div>
-        <div class="project-panel">
-          <div class="project-topline">
-            <span class="featured-badge">Projet récent</span>
-            <span>Master · Sorbonne Université</span>
-          </div>
-          <h3>Modélisation numérique des propriétés thermodynamiques et des ondes de choc</h3>
-          <p>
-            Développement d’un programme modulaire pour modéliser les propriétés thermodynamiques
-            de gaz à capacités calorifiques variables et simuler des ondes de choc normales.
-            Utilisation de méthodes numériques, notamment Newton, pour déterminer température,
-            pression et masse volumique.
-          </p>
-          <div class="tags">
-            <span>Thermodynamique</span><span>Ondes de choc</span><span>Méthode de Newton</span><span>Simulation numérique</span>
-          </div>
-          <a class="project-link" href="#contact">🔒 Rapport complet sur demande →</a>
-        </div>
-      </article>
-
-      <article class="project-row featured">
-        <div class="project-date">DÉC. 2025</div>
-        <div class="project-panel">
-          <div class="project-topline">
-            <span class="featured-badge">Projet récent</span>
-            <span>Master · Sorbonne Université</span>
-          </div>
-          <h3>Simulation numérique de l’équation de diffusion thermique 2D avec changement de phase</h3>
-          <p>
-            Modélisation de la solidification avec front diffus en 2D à l’aide d’une formulation
-            enthalpique. Implémentation en Python pour l’étude de la diffusion thermique et de
-            l’évolution du front de phase.
-          </p>
-          <div class="tags">
-            <span>Python</span><span>Différences finies</span><span>Discrétisation</span><span>Thermique</span>
-          </div>
-          <a class="project-link" href="#contact">🔒 Rapport complet sur demande →</a>
-        </div>
-      </article>
-
-      <article class="project-row featured waves-feature">
-        <div class="project-date">AVR.–MAI 2025</div>
-        <div class="project-panel">
-          <div class="project-topline">
-            <span class="featured-badge">Projet mis en avant</span>
-            <span>Master · Sorbonne Université</span>
-          </div>
-          <h3>Simulation de vagues infinies en 2D</h3>
-          <p>
-            Simulation de la propagation d’ondes dans un domaine bidimensionnel représentant une
-            étendue d’eau. Résolution numérique de l’équation des ondes par différences finies,
-            avec conditions aux limites périodiques afin de reproduire une propagation continue
-            comparable à celle observée en pleine mer.
-          </p>
-          <div class="tags">
-            <span>Python</span><span>Équation des ondes</span><span>Différences finies</span><span>Conditions périodiques</span>
-          </div>
-          <a class="project-link" href="#contact">Animation, diaporama et rapport sur demande →</a>
-        </div>
-      </article>
-
-      <article class="project-row featured">
-        <div class="project-date">AVR.–MAI 2025</div>
-        <div class="project-panel">
-          <div class="project-topline">
-            <span class="featured-badge">Projet mis en avant</span>
-            <span>Master · Sorbonne Université</span>
-          </div>
-          <h3>Écoulement autour d’un profil NACA0012 et comparaison aux mesures expérimentales</h3>
-          <p>
-            Étude de validation CFD à Mach 0,82. Post-traitement des champs de pression, Mach et
-            température sous ParaView, comparaison des coefficients aérodynamiques aux données
-            expérimentales et analyse de l’apparition des ondes de choc en régime transsonique.
-          </p>
-          <div class="tags">
-            <span>CFD</span><span>ParaView</span><span>Aérodynamique</span><span>Validation expérimentale</span>
-          </div>
-          <a class="project-link" href="#contact">🔒 Rapport complet sur demande →</a>
-        </div>
-      </article>
-
-      <article class="project-row featured">
-        <div class="project-date">AVR.–MAI 2025</div>
-        <div class="project-panel">
-          <div class="project-topline">
-            <span class="featured-badge">Projet mis en avant</span>
-            <span>Master · Sorbonne Université</span>
-          </div>
-          <h3>Analyse BEMT d’éoliennes HAWT</h3>
-          <p>
-            Étude comparative et optimisation des performances aérodynamiques de trois éoliennes
-            HAWT à l’aide de la théorie BEMT. Analyse des courbes de puissance, comparaison aux
-            données expérimentales et conception de géométries optimisées.
-          </p>
-          <div class="tags">
-            <span>BEMT</span><span>Aérodynamique</span><span>Optimisation</span><span>ParaView</span>
-          </div>
-          <a class="project-link" href="#contact">🔒 Rapport complet sur demande →</a>
-        </div>
-      </article>
-
-      <article class="project-row">
-        <div class="project-date">NOV. 2023–JANV. 2024</div>
-        <div class="project-panel">
-          <div class="project-topline"><span>Licence · Sorbonne Université</span></div>
-          <h3>Robot humanoïde marcheur</h3>
-          <p>
-            Conception CAO d’un humanoïde marcheur et simulations de mouvement afin de valider
-            une démarche équilibrée et une mobilité fonctionnelle.
-          </p>
-          <div class="tags"><span>SolidWorks</span><span>CAO</span><span>Simulation mécanique</span></div>
-          <a class="project-link" href="https://github.com/dusebastien" target="_blank" rel="noopener">Voir GitHub →</a>
-        </div>
-      </article>
-
-      <article class="project-row">
-        <div class="project-date">OCT.–DÉC. 2023</div>
-        <div class="project-panel">
-          <div class="project-topline"><span>Licence · Sorbonne Université</span></div>
-          <h3>Pacman en Fortran</h3>
-          <p>
-            Développement en équipe d’une version de Pac-Man en Fortran avec déplacements,
-            labyrinthe, fantômes et système de points.
-          </p>
-          <div class="tags"><span>Fortran</span><span>Algorithmique</span><span>Programmation scientifique</span></div>
-          <a class="project-link" href="https://github.com/dusebastien" target="_blank" rel="noopener">Voir GitHub →</a>
-        </div>
-      </article>
-
-      <article class="project-row">
-        <div class="project-date">OCT.–DÉC. 2022</div>
-        <div class="project-panel">
-          <div class="project-topline"><span>Projet numérique</span></div>
-          <h3>Projet numérique — Chute libre</h3>
-          <p>
-            Simulation en Python de la chute libre de Felix Baumgartner en combinant mécanique
-            et informatique, avec prise en compte notamment de la résistance de l’air et de la masse.
-          </p>
-          <div class="tags"><span>Python</span><span>Mécanique</span><span>Modélisation</span><span>Spyder</span></div>
-          <a class="project-link" href="#contact">Diaporama disponible sur demande →</a>
-        </div>
-      </article>
-
-      <article class="project-row">
-        <div class="project-date">MAI–JUIN 2020</div>
-        <div class="project-panel">
-          <div class="project-topline"><span>Première · NSI</span></div>
-          <h3>Convertisseur universel</h3>
-          <p>
-            Création d’une interface Tkinter en Python permettant de convertir distances, durées,
-            masses, puissances, températures et volumes entre différentes unités.
-          </p>
-          <div class="tags"><span>Python</span><span>Tkinter</span><span>PyCharm</span><span>Interface graphique</span></div>
-          <a class="project-link" href="#contact">Projet historique →</a>
-        </div>
-      </article>
-
+  <div class="modal" id="projectModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Fermer" data-close-modal>×</button>
+      <p class="section-kicker">Détail du projet</p>
+      <h2 id="modalTitle">Projet</h2>
+      <p id="modalText"></p>
+      <div id="modalSkills" class="modal-skills"></div>
+      <div class="modal-note">
+        🔒 Les rapports complets et documents associés peuvent être transmis aux recruteurs sur demande.
+      </div>
     </div>
   </div>
-</section>
 
-<section class="section" id="competences">
-  <div class="container">
-    <p class="section-kicker">Compétences</p>
-    <h2 class="section-title">Domaines développés au fil des projets.</h2>
-    <div class="skills-grid">
-      <div class="skill-card"><span class="skill-number">01</span><h3>Simulation numérique</h3><p>Différences finies, discrétisation, équations aux dérivées partielles et résolution numérique.</p></div>
-      <div class="skill-card"><span class="skill-number">02</span><h3>Aérodynamique</h3><p>CFD, BEMT, profils aérodynamiques, ondes de choc et analyse de performances.</p></div>
-      <div class="skill-card"><span class="skill-number">03</span><h3>Programmation</h3><p>Python, Fortran, développement de modèles scientifiques et visualisation de résultats.</p></div>
-      <div class="skill-card"><span class="skill-number">04</span><h3>Conception & outils</h3><p>SolidWorks, CAO, ParaView, PyCharm, Spyder et outils de post-traitement scientifique.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-contact" id="contact">
-  <div class="container contact-card">
-    <div>
-      <p class="section-kicker">Contact</p>
-      <h2>Rapports et documents détaillés.</h2>
-      <p>
-        Les versions complètes de certains rapports, diaporamas et animations peuvent être
-        communiquées aux recruteurs sur demande.
-      </p>
-      <p class="contact-details">
-        <a href="mailto:Sebastien.Du@etu.sorbonne-universite.fr">Sebastien.Du@etu.sorbonne-universite.fr</a><br>
-        <a href="https://www.linkedin.com/in/sebastiendu/" target="_blank" rel="noopener">linkedin.com/in/sebastiendu</a>
-      </p>
-    </div>
-    <div class="contact-actions">
-      <a class="btn btn-primary" href="mailto:Sebastien.Du@etu.sorbonne-universite.fr">Me contacter</a>
-      <a class="btn btn-secondary" href="https://www.linkedin.com/in/sebastiendu/" target="_blank" rel="noopener">LinkedIn</a>
-    </div>
-  </div>
-</section>
-</main>
-
-<footer>
-  <div class="container footer-content">
-    <p>© <span id="year"></span> Sébastien. Portfolio personnel.</p>
-    <a href="#accueil">Retour en haut ↑</a>
-  </div>
-</footer>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

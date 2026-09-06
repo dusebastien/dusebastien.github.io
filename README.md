@@ -1,76 +1,28 @@
-# Portfolio Sébastien — GitHub Pages
+# Portfolio de Sébastien Du
 
-Ce dossier est prêt à être utilisé dans le dépôt `dusebastien.github.io`.
+Version basée sur le design original préféré, enrichie avec :
 
-## Fichiers
+- les 9 projets classés du plus récent au plus ancien ;
+- « Simulation de vagues infinies en 2D » mise en avant ;
+- LinkedIn : https://www.linkedin.com/in/sebastiendu/
+- e-mail : Sebastien.Du@etu.sorbonne-universite.fr
+- mode clair / sombre avec mémorisation du choix ;
+- adaptation automatique au thème du système au premier chargement ;
+- modales détaillées pour chaque projet ;
+- responsive mobile.
 
-- `index.html` : contenu du portfolio
-- `style.css` : design
-- `script.js` : menu mobile + fenêtres de détail
-- `assets/` : photos, captures, CV PDF, etc.
+## Installation GitHub Pages
 
-## Installation sur GitHub
+Dépose directement les fichiers `index.html`, `style.css`, `script.js` et le dossier `assets`
+à la racine du dépôt `dusebastien.github.io`, puis valide avec **Commit changes**.
 
-1. Ouvre le dépôt `dusebastien.github.io`.
-2. Supprime ou remplace l'ancien `index.html`.
-3. Importe `index.html`, `style.css`, `script.js` et le dossier `assets`.
-4. Commit les changements.
-5. Dans Settings > Pages, utilise la branche `main` et `/ (root)`.
+## CV
 
-## À modifier en priorité
-
-Dans `index.html` :
-
-- `ton-email@example.com`
-- le lien LinkedIn `href="#"`
-- le titre exact du Master 2
-- les descriptions des projets
-- les compétences
-- les liens GitHub des projets
-
-## Ajouter ton CV
-
-Place le PDF dans :
+Pour activer le bouton CV, ajoute ton CV sous :
 
 `assets/CV-Sebastien.pdf`
 
-Le bouton du portfolio fonctionnera automatiquement.
+## Confidentialité
 
-## Ajouter des images
-
-Place tes images dans `assets/`, par exemple :
-
-- `assets/humanoid-robot.jpg`
-- `assets/pacman.jpg`
-
-Tu peux ensuite remplacer les blocs colorés `.project-visual` par des balises `<img>`.
-
-## Important
-
-Ne mets pas dans ce dépôt public :
-- rapports confidentiels,
-- données sensibles,
-- mot de passe,
-- documents internes,
-- informations personnelles d'autres étudiants.
-
-Pour les rapports complets, préfère une transmission sur demande ou un espace privé séparé.
-
-
-## Version 2
-
-Les 9 projets sont désormais classés du plus récent au plus ancien. Le projet « Simulation de vagues infinies en 2D » est explicitement mis en avant.
-
-## Mode clair / sombre
-
-Cette version inclut un bouton de thème dans la barre de navigation.
-
-- suit le thème du système au premier chargement ;
-- permet de basculer manuellement entre clair et sombre ;
-- mémorise le choix dans le navigateur.
-
-
-## Coordonnées intégrées
-
-- LinkedIn : https://www.linkedin.com/in/sebastiendu/
-- E-mail : Sebastien.Du@etu.sorbonne-universite.fr
+Ne place pas de rapports confidentiels dans ce dépôt public.
+Les rapports complets sont indiqués comme disponibles sur demande.
