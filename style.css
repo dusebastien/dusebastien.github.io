@@ -854,3 +854,7 @@ footer {
     animation-duration: 0.001ms !important;
   }
 }
+
+.project-card {
+  cursor: pointer;
+}
