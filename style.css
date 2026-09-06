@@ -2233,3 +2233,20 @@ footer {
     height: 65vh;
   }
 }
+
+
+/* Médias vidéo des fiches projets */
+.project-gallery-item video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+
+  display: block;
+
+  object-fit: contain;
+
+  background: #000;
+}
+
+.project-gallery-item-featured video {
+  aspect-ratio: 16 / 8.7;
+}

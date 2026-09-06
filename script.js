@@ -54,43 +54,153 @@ const projectData = {
  documentFolder: "Combustion",
  title: "Simulation numérique d’une flamme hydrogène/air",
  meta: "Avril 2026 · Master · Sorbonne Université",
- text: "Étude numérique sous MATLAB de la combustion d’un mélange hydrogène/air. Le projet combine une approche thermodynamique, l’analyse des propriétés de transport, la cinétique chimique et une modélisation de flamme monodimensionnelle afin de caractériser le comportement d’une flamme prémélangée.",
+ text: "Ce projet porte sur la combustion d’un mélange hydrogène/air à l’aide de simulations numériques sous MATLAB. L’étude s’organise autour de quatre axes complémentaires : les propriétés thermodynamiques, les propriétés de transport, la cinétique chimique et la modélisation d’une flamme monodimensionnelle. L’objectif est d’analyser l’influence de la richesse, de la température et de la composition du mélange sur le comportement de la flamme.",
  highlights: [
-   "Calcul de la température adiabatique de flamme et étude de son évolution avec la richesse du mélange.",
-   "Analyse de la conductivité thermique et des coefficients de diffusion en fonction de la température et de la composition.",
-   "Étude des espèces radicalaires H, O, OH et HO₂ ainsi que du taux de production de H₂O au niveau du front de flamme.",
-   "Comparaison d’une flamme H₂/air et d’une combustion avec oxygène pur à l’aide d’un modèle monodimensionnel."
+   "Propriétés thermodynamiques : détermination de la température adiabatique de flamme et étude de son évolution en fonction de la richesse du mélange.",
+   "Propriétés de transport : analyse de la conductivité thermique et des coefficients de diffusion en fonction de la température et de la composition du mélange.",
+   "Cinétique chimique : étude de la structure de la flamme, des espèces radicalaires et des taux de production des espèces chimiques.",
+   "Flamme monodimensionnelle : analyse de la température des gaz brûlés et du rendement de combustion, avec comparaison entre combustion dans l’air et dans l’oxygène pur."
  ],
  images: [
    {
-     src: "assets/projets/combustion-temperature.png",
-     alt: "Évolution de la température adiabatique de flamme en fonction de la richesse",
-     caption: "Température adiabatique en fonction de la richesse du mélange."
+     src: "assets/projets/combustion-thermodynamique.png",
+     alt: "Température adiabatique de flamme en fonction de la richesse",
+     caption: "Propriétés thermodynamiques — température adiabatique de flamme en fonction de la richesse."
+   },
+   {
+     src: "assets/projets/combustion-transport.png",
+     alt: "Iso-contours de conductivité thermique en fonction de la température et de la fraction molaire d’argon",
+     caption: "Propriétés de transport — influence de la température et de la composition sur la conductivité thermique."
    },
    {
      src: "assets/projets/combustion-cinetique.png",
-     alt: "Profils des espèces chimiques et radicalaires dans une flamme hydrogène air",
-     caption: "Structure de la zone de réaction et profils des espèces radicalaires."
+     alt: "Fractions molaires des radicaux dans une flamme hydrogène air",
+     caption: "Cinétique chimique — évolution des espèces radicalaires dans la zone de flamme."
    },
    {
      src: "assets/projets/combustion-flamme-1d.png",
      alt: "Température des gaz brûlés et rendement de combustion en fonction de la richesse",
-     caption: "Modélisation 1D : température des gaz brûlés et rendement de combustion."
+     caption: "Flamme monodimensionnelle — température des gaz brûlés et rendement de combustion."
    }
  ],
- skills: ["MATLAB", "Combustion", "Thermodynamique", "Cinétique chimique", "Transport", "Flamme 1D", "Hydrogène"]
+ skills: [
+   "MATLAB",
+   "Simulation numérique",
+   "Combustion hydrogène/air",
+   "Thermodynamique",
+   "Propriétés de transport",
+   "Cinétique chimique",
+   "Modélisation 1D",
+   "Analyse de données"
+ ]
  },
  thermo: {
  documentFolder: "Calcul Scientifique",
  title: "Modélisation numérique des propriétés thermodynamiques et des ondes de choc",
- text: "Développement d’un programme modulaire pour modéliser les propriétés thermodynamiques de gaz à capacités calorifiques variables et simuler des ondes de choc normales. Le projet mobilise notamment la méthode de Newton pour calculer température, pression et masse volumique.",
- skills: ["Thermodynamique", "Ondes de choc", "Méthode de Newton", "Simulation numérique"]
+ meta: "Février 2026 · Master · Sorbonne Université",
+ text: "Développement d’un programme en Fortran 2018 pour modéliser les propriétés thermodynamiques de plusieurs gaz à capacités calorifiques variables, puis application à l’étude des ondes de choc normales. Le travail porte à la fois sur la mise en place d’une bibliothèque numérique et sur l’analyse des grandeurs aérodynamiques et thermodynamiques en fonction du nombre de Mach.",
+ highlights: [
+   "Développement d’une structure de calcul modulaire pour les propriétés thermodynamiques de gaz à capacités calorifiques variables.",
+   "Étude de l’influence du nombre de Mach amont sur les grandeurs aval à travers une onde de choc normale.",
+   "Analyse de l’effet de la température amont sur l’évolution de M₂, p₂/p₁, ρ₂/ρ₁ et pₜ₂/pₜ₁.",
+   "Comparaison entre plusieurs approches thermodynamiques : γ(T), γavg, γ₁, γ₂ et γ = 1,4.",
+   "Mise en évidence des écarts entre modèle à γ constant et modèle à propriétés variables lorsque le Mach augmente."
+ ],
+ images: [
+   {
+     src: "assets/projets/thermo-m2-air.png",
+     alt: "Mach aval M2 en fonction du Mach amont M1 pour différentes températures",
+     caption: "Mach aval M₂ en fonction du Mach amont M₁."
+   },
+   {
+     src: "assets/projets/thermo-p2-p1-temperatures.png",
+     alt: "Rapport de pression statique p2 sur p1 en fonction du Mach amont pour différentes températures",
+     caption: "Rapport p₂/p₁ en fonction de M₁ pour différentes températures amont."
+   },
+   {
+     src: "assets/projets/thermo-p2-p1-gamma.png",
+     alt: "Rapport de pression p2 sur p1 pour différents modèles thermodynamiques",
+     caption: "Rapport p₂/p₁ : comparaison des différents modèles de γ."
+   },
+   {
+     src: "assets/projets/thermo-pt2-pt1.png",
+     alt: "Rapport de pression totale pt2 sur pt1 en fonction du Mach amont",
+     caption: "Rapport de pression totale pₜ₂/pₜ₁ en fonction de M₁."
+   },
+   {
+     src: "assets/projets/thermo-rho2-rho1-temperatures.png",
+     alt: "Rapport de masse volumique rho2 sur rho1 en fonction du Mach amont pour différentes températures",
+     caption: "Rapport ρ₂/ρ₁ en fonction de M₁ pour différentes températures amont."
+   },
+   {
+     src: "assets/projets/thermo-rho2-rho1-gamma.png",
+     alt: "Rapport de masse volumique rho2 sur rho1 pour différents modèles thermodynamiques",
+     caption: "Rapport ρ₂/ρ₁ : comparaison des différents modèles de γ."
+   },
+   {
+     src: "assets/projets/thermo-t2-t1-gamma.png",
+     alt: "Rapport de température T2 sur T1 pour différents modèles thermodynamiques",
+     caption: "Rapport T₂/T₁ : comparaison des différents modèles de γ."
+   }
+ ],
+ skills: [
+   "Fortran 2018",
+   "Thermodynamique",
+   "Aérodynamique compressible",
+   "Ondes de choc",
+   "Calcul scientifique",
+   "Méthodes numériques",
+   "Modélisation physique",
+   "Analyse de données"
+ ]
  },
  phase: {
  documentFolder: "Méthodes numériques pour la dynamique",
- title: "Simulation numérique de l’équation de diffusion thermique 2D avec changement de phase",
- text: "Modélisation de la solidification avec front diffus en 2D à l’aide d’une formulation enthalpique. Implémentation en Python pour étudier la diffusion thermique et l’évolution du front de phase.",
- skills: ["Python", "Différences finies", "Discrétisation", "Thermique"]
+ title: "Diffusion thermique 2D avec changement de phase",
+ meta: "Décembre 2025 · Master · Sorbonne Université",
+ text: "Simulation numérique en Python de la solidification bidimensionnelle d’un milieu initialement liquide à l’aide d’une approche à front diffus. Le changement de phase est intégré dans une formulation enthalpique prenant en compte la chaleur latente, ce qui permet de résoudre une seule équation sur l’ensemble du domaine sans suivre explicitement l’interface solide-liquide.",
+ highlights: [
+   "Modélisation 2D du changement de phase avec suivi de l’évolution de la fraction solide dans le temps.",
+   "Formulation enthalpique à front diffus permettant d’intégrer la chaleur latente dans les propriétés thermiques effectives.",
+   "Discrétisation par différences finies, schéma implicite en temps et résolution de systèmes linéaires creux.",
+   "Analyse de la cinétique de solidification à partir de la fraction solide moyenne et du temps caractéristique de diffusion thermique.",
+   "Étude de l’influence des températures imposées, de la température initiale et de la chaleur latente sur la durée de solidification."
+ ],
+ videos: [
+   {
+     src: "assets/projets/solidification.mp4",
+     caption: "Évolution temporelle de la solidification 2D — progression du front depuis les parois froides vers le centre."
+   }
+ ],
+ images: [
+   {
+     src: "assets/projets/solidification-initial.png",
+     alt: "État initial du domaine avant solidification",
+     caption: "État initial — domaine entièrement liquide au début de la simulation."
+   },
+   {
+     src: "assets/projets/solidification-intermediaire.png",
+     alt: "État intermédiaire de la solidification bidimensionnelle",
+     caption: "État intermédiaire — progression du front de solidification depuis les quatre parois."
+   },
+   {
+     src: "assets/projets/solidification-final.png",
+     alt: "État final du domaine après solidification",
+     caption: "État final — domaine quasiment entièrement solidifié."
+   }
+ ],
+ skills: [
+   "Python",
+   "NumPy",
+   "SciPy",
+   "Matplotlib",
+   "Différences finies",
+   "Schéma implicite",
+   "Matrices creuses",
+   "Transferts thermiques",
+   "Changement de phase",
+   "Modélisation numérique"
+ ]
  },
  waves: {
  documentFolder: "Vagues infinies 2D",
@@ -177,11 +287,36 @@ function openModal(project) {
 
   modalGallery.replaceChildren();
 
-  if (Array.isArray(project.images) && project.images.length) {
-    project.images.forEach((image, index) => {
+  let mediaIndex = 0;
+
+  if (Array.isArray(project.videos) && project.videos.length) {
+    project.videos.forEach(video => {
       const figure = document.createElement("figure");
       figure.className =
-        index === 0
+        mediaIndex === 0
+          ? "project-gallery-item project-gallery-item-featured"
+          : "project-gallery-item";
+
+      const player = document.createElement("video");
+      player.src = video.src;
+      player.controls = true;
+      player.preload = "metadata";
+      player.playsInline = true;
+
+      const caption = document.createElement("figcaption");
+      caption.textContent = video.caption || "";
+
+      figure.append(player, caption);
+      modalGallery.appendChild(figure);
+      mediaIndex += 1;
+    });
+  }
+
+  if (Array.isArray(project.images) && project.images.length) {
+    project.images.forEach(image => {
+      const figure = document.createElement("figure");
+      figure.className =
+        mediaIndex === 0
           ? "project-gallery-item project-gallery-item-featured"
           : "project-gallery-item";
 
@@ -195,12 +330,11 @@ function openModal(project) {
 
       figure.append(img, caption);
       modalGallery.appendChild(figure);
+      mediaIndex += 1;
     });
-
-    modalGallery.hidden = false;
-  } else {
-    modalGallery.hidden = true;
   }
+
+  modalGallery.hidden = mediaIndex === 0;
 
   modalHighlightsList.replaceChildren();
 
@@ -233,6 +367,9 @@ function openModal(project) {
 
 
 function closeModal() {
+  modalGallery?.querySelectorAll("video").forEach(video => {
+    video.pause();
+  });
   closePdfViewer();
   modal.classList.remove("is-open");
   modal.setAttribute("aria-hidden", "true");
