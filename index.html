@@ -3,28 +3,269 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - Sébastien</title>
+  <meta name="description" content="Portfolio de Sébastien — étudiant en Master 2, projets académiques et personnels.">
+  <title>Sébastien — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#accueil">Sébastien<span>.</span></a>
 
-  <h1>Portfolio de Sébastien</h1>
+      <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+        ☰
+      </button>
 
-  <p>
-    Étudiant en Master 2 - Bienvenue sur mon portfolio.
-  </p>
+      <nav class="nav-links">
+        <a href="#accueil">Accueil</a>
+        <a href="#apropos">À propos</a>
+        <a href="#projets">Projets</a>
+        <a href="#competences">Compétences</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-  <h2>Mes projets</h2>
+  <main>
+    <section class="hero" id="accueil">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Étudiant en Master 2</p>
+          <h1>Je conçois, programme et transforme des idées en projets concrets.</h1>
+          <p class="hero-text">
+            Bienvenue sur mon portfolio. J’y présente une sélection de projets réalisés
+            au cours de mon parcours universitaire, de la licence au master.
+          </p>
 
-  <h3>Humanoid Walking Robot</h3>
-  <p>
-    Projet de robotique réalisé dans le cadre de mes études.
-  </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projets">Voir mes projets</a>
+            <a class="btn btn-secondary" href="assets/CV-Sebastien.pdf" target="_blank" rel="noopener">
+              Télécharger mon CV
+            </a>
+          </div>
 
-  <h3>Project Pacman</h3>
-  <p>
-    Projet de programmation et développement.
-  </p>
+          <div class="social-links">
+            <a href="https://github.com/dusebastien" target="_blank" rel="noopener">GitHub</a>
+            <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="mailto:ton-email@example.com">E-mail</a>
+          </div>
+        </div>
 
+        <div class="hero-card">
+          <div class="avatar">S</div>
+          <p class="hero-card-label">Profil</p>
+          <h2>Sébastien</h2>
+          <p>Master 2 · Ingénierie · Développement · Robotique</p>
+
+          <div class="mini-stats">
+            <div>
+              <strong>6+</strong>
+              <span>projets</span>
+            </div>
+            <div>
+              <strong>L1 → M2</strong>
+              <span>parcours</span>
+            </div>
+            <div>
+              <strong>2026</strong>
+              <span>portfolio</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="apropos">
+      <div class="container two-columns">
+        <div>
+          <p class="section-kicker">À propos</p>
+          <h2 class="section-title">Un parcours construit projet après projet.</h2>
+        </div>
+
+        <div class="about-text">
+          <p>
+            Je suis actuellement étudiant en Master 2. Depuis ma première année de licence,
+            j’ai travaillé sur différents projets académiques et personnels qui m’ont permis
+            de développer mes compétences techniques, ma capacité d’analyse et mon autonomie.
+          </p>
+          <p>
+            Ce portfolio présente une sélection de travaux représentatifs de mon niveau actuel.
+            Les rapports complets ou documents détaillés peuvent être transmis sur demande aux recruteurs.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="projets">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Portfolio</p>
+            <h2 class="section-title">Projets sélectionnés</h2>
+          </div>
+          <p class="section-intro">
+            Une sélection de projets académiques et personnels. Remplace les textes et visuels par les tiens.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-visual robot">
+              <span>ROBOTIQUE</span>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span>Master</span>
+                <span>Projet technique</span>
+              </div>
+              <h3>Humanoid Walking Robot</h3>
+              <p>
+                Étude et développement d’un robot humanoïde capable de reproduire une marche contrôlée.
+                Présente ici le contexte, ton rôle et le résultat obtenu.
+              </p>
+              <div class="tags">
+                <span>Robotique</span>
+                <span>Programmation</span>
+                <span>Simulation</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/dusebastien" target="_blank" rel="noopener">Voir sur GitHub →</a>
+                <button class="text-button" data-project="robot">En savoir plus</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-visual pacman">
+              <span>PROGRAMMATION</span>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span>Licence</span>
+                <span>Développement</span>
+              </div>
+              <h3>Project Pacman</h3>
+              <p>
+                Développement d’un projet inspiré de Pac-Man permettant de mettre en pratique
+                la programmation, la logique algorithmique et la structuration d’un projet.
+              </p>
+              <div class="tags">
+                <span>Algorithmique</span>
+                <span>Développement</span>
+                <span>Git</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/dusebastien" target="_blank" rel="noopener">Voir sur GitHub →</a>
+                <button class="text-button" data-project="pacman">En savoir plus</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-visual generic">
+              <span>PROJET 03</span>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span>M1 / M2</span>
+                <span>À personnaliser</span>
+              </div>
+              <h3>Nom de ton troisième projet</h3>
+              <p>
+                Décris en deux ou trois phrases le problème traité, ce que tu as réalisé
+                et ce que le projet démontre de tes compétences.
+              </p>
+              <div class="tags">
+                <span>Compétence 1</span>
+                <span>Compétence 2</span>
+                <span>Compétence 3</span>
+              </div>
+              <div class="project-actions">
+                <a href="#contact">Rapport sur demande →</a>
+                <button class="text-button" data-project="generic">En savoir plus</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="competences">
+      <div class="container">
+        <p class="section-kicker">Compétences</p>
+        <h2 class="section-title">Ce que je peux mettre en pratique.</h2>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <span class="skill-number">01</span>
+            <h3>Programmation</h3>
+            <p>Python, C/C++, JavaScript ou les langages que tu utilises réellement.</p>
+          </div>
+
+          <div class="skill-card">
+            <span class="skill-number">02</span>
+            <h3>Robotique & simulation</h3>
+            <p>Modélisation, simulation, contrôle, systèmes embarqués ou outils associés.</p>
+          </div>
+
+          <div class="skill-card">
+            <span class="skill-number">03</span>
+            <h3>Conception</h3>
+            <p>CAO, prototypage, méthodologie projet, tests et validation.</p>
+          </div>
+
+          <div class="skill-card">
+            <span class="skill-number">04</span>
+            <h3>Travail en équipe</h3>
+            <p>Documentation, Git, organisation, communication et présentation technique.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-contact" id="contact">
+      <div class="container contact-card">
+        <div>
+          <p class="section-kicker">Contact</p>
+          <h2>Intéressé par mon profil ?</h2>
+          <p>
+            Je peux transmettre les rapports complets, présentations et documents techniques
+            de certains projets aux recruteurs sur demande.
+          </p>
+        </div>
+
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="mailto:ton-email@example.com">Me contacter</a>
+          <a class="btn btn-secondary" href="#" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <p>© <span id="year"></span> Sébastien. Portfolio personnel.</p>
+      <a href="#accueil">Retour en haut ↑</a>
+    </div>
+  </footer>
+
+  <div class="modal" id="projectModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Fermer" data-close-modal>×</button>
+      <p class="section-kicker">Détail du projet</p>
+      <h2 id="modalTitle">Projet</h2>
+      <p id="modalText"></p>
+      <div class="modal-note">
+        🔒 Le rapport complet peut être transmis à un recruteur sur demande.
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
