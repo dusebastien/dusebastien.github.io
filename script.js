@@ -125,9 +125,6 @@ const modalProjectMeta = document.getElementById("modalProjectMeta");
 const modalGallery = document.getElementById("modalGallery");
 const modalHighlights = document.getElementById("modalHighlights");
 const modalHighlightsList = document.getElementById("modalHighlightsList");
-const privateAccessForm = document.getElementById("privateAccessForm");
-const privatePassword = document.getElementById("privatePassword");
-const privateAccessMessage = document.getElementById("privateAccessMessage");
 
 
 function openModal(project) {
@@ -190,16 +187,6 @@ function openModal(project) {
     modalHighlights.hidden = true;
   }
 
-  if (privatePassword) {
-    privatePassword.value = "";
-  }
-
-  if (privateAccessMessage) {
-    privateAccessMessage.textContent =
-      "Mode prototype : aucun document privé n’est stocké sur ce site.";
-    privateAccessMessage.classList.remove("is-warning");
-  }
-
   modal.classList.add("is-open");
   modal.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
@@ -225,37 +212,6 @@ document.querySelectorAll("[data-project]").forEach(button => {
 document.querySelectorAll("[data-close-modal]").forEach(element => {
  element.addEventListener("click", closeModal);
 });
-
-// =========================================================
-// PROTOTYPE — ACCÈS AUX DOCUMENTS PRIVÉS
-// =========================================================
-//
-// Aucun mot de passe réel ni aucun lien vers un document privé
-// n'est présent dans ce JavaScript. Le formulaire sert uniquement
-// à tester l'interface avant de connecter un véritable système
-// d'authentification.
-//
-if (privateAccessForm) {
-  privateAccessForm.addEventListener("submit", event => {
-    event.preventDefault();
-
-    if (!privatePassword.value.trim()) {
-      privateAccessMessage.textContent = "Saisis un mot de passe pour tester l’interface.";
-      privateAccessMessage.classList.add("is-warning");
-      privatePassword.focus();
-      return;
-    }
-
-    privateAccessMessage.textContent =
-      "Prototype uniquement : la zone sécurisée n’est pas encore connectée. " +
-      "Aucun rapport privé n’est exposé dans GitHub Pages.";
-    privateAccessMessage.classList.add("is-warning");
-  });
-}
-
-
-
-
 
 // =========================================================
 // EXPÉRIENCE — STAGE M1 CNRS / FAST

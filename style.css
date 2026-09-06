@@ -1874,48 +1874,10 @@ footer {
   font-size: 0.82rem;
 }
 
-.private-access-form {
-  margin-top: 20px;
-}
 
-.private-access-form label {
-  display: block;
 
-  margin-bottom: 7px;
 
-  font-size: 0.76rem;
-  font-weight: 750;
-}
 
-.private-access-row {
-  display: flex;
-
-  gap: 9px;
-}
-
-.private-access-row input {
-  min-width: 0;
-  flex: 1;
-
-  min-height: 48px;
-
-  padding: 0 14px;
-
-  border: 1px solid var(--line);
-  border-radius: 13px;
-
-  background: var(--surface);
-  color: var(--text);
-
-  font: inherit;
-}
-
-.private-access-row input:focus {
-  outline: 2px solid var(--accent);
-  outline-offset: 1px;
-
-  border-color: var(--accent);
-}
 
 .private-access-message {
   margin: 10px 0 0;
@@ -1925,9 +1887,6 @@ footer {
   font-size: 0.74rem;
 }
 
-.private-access-message.is-warning {
-  color: var(--accent);
-}
 
 @media (max-width: 680px) {
   .project-modal-gallery {
@@ -1937,12 +1896,31 @@ footer {
   .project-gallery-item-featured {
     grid-column: auto;
   }
+}
 
-  .private-access-row {
-    flex-direction: column;
-  }
 
-  .private-access-row .btn {
-    width: 100%;
-  }
+/* =========================================================
+   ACCÈS PROTON DRIVE
+   ========================================================= */
+
+.private-access-actions {
+  margin-top: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 10px;
+}
+
+.private-access-actions .btn {
+  width: fit-content;
+}
+
+.private-access-actions .private-access-message {
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 0.74rem;
 }
