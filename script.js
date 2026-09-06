@@ -134,3 +134,24 @@ document.addEventListener("keydown", event => {
     closeModal();
   }
 });
+
+// Rendre toute la carte projet cliquable
+document.querySelectorAll(".project-card").forEach(card => {
+  card.addEventListener("click", event => {
+
+    // Ne pas interférer avec les vrais liens et boutons
+    if (event.target.closest("a, button")) {
+      return;
+    }
+
+    const button = card.querySelector("[data-project]");
+
+    if (!button) return;
+
+    const project = projectData[button.dataset.project];
+
+    if (project) {
+      openModal(project);
+    }
+  });
+});
