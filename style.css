@@ -1679,3 +1679,21 @@ footer {
   }
 
 }
+
+
+/* =========================================================
+   PROJET — ACTION UNIQUE
+   ========================================================= */
+
+.project-actions {
+  justify-content: flex-start;
+}
+
+.project-actions .text-button {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.project-actions .text-button:hover {
+  color: var(--accent);
+}
