@@ -288,32 +288,218 @@ const projectData = {
  waves: {
  documentFolder: "Vagues infinies 2D",
  title: "Simulation de vagues infinies en 2D",
- text: "Simulation de la propagation d’ondes dans un domaine bidimensionnel représentant une étendue d’eau. L’équation des ondes est résolue numériquement par différences finies avec des conditions aux limites périodiques afin de simuler une propagation continue en pleine mer.",
- skills: ["Python", "Équation des ondes", "Différences finies", "Conditions périodiques"]
+ meta: "Avril – mai 2025 · Licence 3 · Sorbonne Université",
+ text: "Simulation numérique de la propagation d’ondes dans un domaine bidimensionnel à l’aide de schémas aux différences finies. Le modèle repose sur l’équation des ondes 2D et des conditions aux limites périodiques permettant de représenter un domaine sans bord. Plusieurs configurations sont étudiées : vibration d’une membrane, propagation libre et interaction avec un obstacle.",
+ highlights: [
+   "Validation du code sur une configuration de vibration d’une membrane bidimensionnelle.",
+   "Discrétisation spatiale de l’équation des ondes par différences finies et intégration temporelle explicite.",
+   "Utilisation de conditions aux limites périodiques pour modéliser une propagation continue dans un domaine sans bord.",
+   "Étude de la propagation libre d’une onde et de sa redistribution dans le domaine.",
+   "Analyse des réflexions, interférences et déformations du front d’onde en présence d’un obstacle décentré."
+ ],
+ skills: [
+   "Python",
+   "Équation des ondes",
+   "Différences finies",
+   "Schéma explicite",
+   "Condition CFL",
+   "Conditions périodiques",
+   "Modélisation 2D",
+   "Visualisation scientifique"
+ ],
+ gallerySections: [
+   {
+     layout: "grid-3",
+     featuredFirst: false,
+     videos: [
+       {
+         src: "assets/projets/vagues-vibration-membrane.mp4",
+         caption: "Vibration d’une membrane — validation du comportement ondulatoire en 2D."
+       },
+       {
+         src: "assets/projets/vagues-propagation-libre.mp4",
+         caption: "Propagation libre — évolution d’une onde dans un domaine périodique."
+       },
+       {
+         src: "assets/projets/vagues-propagation-obstacle.mp4",
+         caption: "Propagation avec obstacle — réflexion, déformation et interactions du front d’onde."
+       }
+     ]
+   }
+ ]
  },
  naca: {
  documentFolder: "NACA Fluides L3",
  title: "Écoulement autour d’un profil NACA0012 et comparaison aux mesures expérimentales",
- text: "Étude de validation CFD sur un profil NACA0012 à Mach 0,82. Post-traitement sous ParaView, comparaison des coefficients de pression et de traînée avec les données expérimentales, et analyse de l’apparition des ondes de choc et des zones de séparation.",
- skills: ["CFD", "ParaView", "Aérodynamique", "Validation expérimentale"]
+ meta: "Avril – mai 2025 · Licence 3 · Sorbonne Université",
+ text: "Étude numérique de l’écoulement autour d’un profil NACA0012 à angle d’attaque nul, avec un cas de référence à Mach 0,82 puis une analyse sur une plage plus large de nombres de Mach. Les simulations sont post-traitées sous ParaView et comparées à des mesures expérimentales afin d’étudier l’apparition des ondes de choc et le phénomène de divergence de traînée transsonique.",
+ highlights: [
+   "Mise en place et analyse d’un maillage structuré raffiné au voisinage du profil, notamment près du bord d’attaque, du bord de fuite et de la couche limite.",
+   "Analyse du champ de Mach à M∞ = 0,82, avec apparition de zones localement supersoniques suivies d’un retour brutal au régime subsonique à travers des ondes de choc.",
+   "Comparaison du coefficient de pression Cp numérique avec les mesures expérimentales le long du profil.",
+   "Étude de l’évolution du coefficient de traînée cD en fonction du nombre de Mach et mise en évidence de la divergence de traînée transsonique autour de M∞ ≈ 0,8."
+ ],
+ skills: [
+   "CFD",
+   "ParaView",
+   "Aérodynamique",
+   "Écoulements compressibles",
+   "NACA0012",
+   "Ondes de choc",
+   "Post-traitement",
+   "Validation expérimentale",
+   "Analyse de données"
+ ],
+ gallerySections: [
+   {
+     layout: "grid-2",
+     featuredFirst: false,
+     images: [
+       {
+         src: "assets/projets/naca-maillage.png",
+         alt: "Maillage structuré raffiné autour du profil NACA0012",
+         caption: "Maillage — raffinement autour du profil NACA0012."
+       },
+       {
+         src: "assets/projets/naca-coefficient-pression.png",
+         alt: "Coefficient de pression Cp le long du profil NACA0012, comparaison simulation expérience",
+         caption: "Coefficient de pression Cp — comparaison entre simulation et mesures expérimentales."
+       },
+       {
+         src: "assets/projets/naca-mach-082.png",
+         alt: "Champ du nombre de Mach autour du profil NACA0012 à Mach 0,82",
+         caption: "Champ de Mach à M∞ = 0,82 — zones localement supersoniques et ondes de choc."
+       },
+       {
+         src: "assets/projets/naca-cd-vs-mach.png",
+         alt: "Coefficient de traînée en fonction du nombre de Mach pour le profil NACA0012",
+         caption: "Coefficient de traînée cD — divergence transsonique en fonction du nombre de Mach."
+       }
+     ]
+   }
+ ]
  },
  bemt: {
  documentFolder: "Eoliennes",
  title: "Analyse BEMT d’éoliennes HAWT",
- text: "Étude comparative et optimisation des performances aérodynamiques de trois éoliennes HAWT par la théorie BEMT. Analyse des courbes de puissance, confrontation aux données expérimentales et étude paramétrique de géométries optimisées.",
- skills: ["BEMT", "Aérodynamique", "Optimisation", "Analyse de données"]
+ meta: "Avril – mai 2025 · Master · Sorbonne Université",
+ text: "Étude comparative et optimisation des performances aérodynamiques de trois éoliennes à axe horizontal — NREL II, NREL IV et UAE — à l’aide de la théorie BEMT. Le projet combine l’analyse des géométries de pales, des courbes de puissance et des grandeurs aérodynamiques locales, puis la conception de rotors optimisés afin d’améliorer l’extraction de l’énergie du vent.",
+ highlights: [
+   "Comparaison de trois rotors HAWT présentant des géométries et des comportements aérodynamiques différents : NREL II, NREL IV et UAE.",
+   "Modélisation par la méthode BEMT et comparaison des courbes de puissance numériques avec des données expérimentales.",
+   "Analyse du coefficient de puissance Cp et identification du point de fonctionnement optimal de chaque rotor.",
+   "Conception de géométries optimales de pales à partir de la corde et de l’angle de calage, avec comparaison entre rotors réels et optimisés.",
+   "Étude de l’influence de paramètres de conception tels que la marge de décrochage et le nombre de pales sur les performances aérodynamiques."
+ ],
+ skills: [
+   "BEMT",
+   "Aérodynamique des éoliennes",
+   "Optimisation de rotor",
+   "HAWT",
+   "Théorie de Glauert",
+   "Analyse de Cp",
+   "Portance & traînée",
+   "Induction axiale et tangentielle",
+   "ParaView",
+   "Gnuplot",
+   "Validation expérimentale"
+ ],
+ gallerySections: [
+   {
+     layout: "grid-3",
+     featuredFirst: false,
+     images: [
+       {
+         src: "assets/projets/eoliennes-nrelii.png",
+         alt: "Comparaison géométrique entre le rotor NREL II réel et optimisé",
+         caption: "NREL II — géométrie réelle et géométrie optimisée."
+       },
+       {
+         src: "assets/projets/eoliennes-nreliv.png",
+         alt: "Comparaison géométrique entre le rotor NREL IV réel et optimisé",
+         caption: "NREL IV — géométrie réelle et géométrie optimisée."
+       },
+       {
+         src: "assets/projets/eoliennes-uae.png",
+         alt: "Comparaison géométrique entre le rotor UAE réel et optimisé",
+         caption: "UAE — géométrie réelle et géométrie optimisée."
+       }
+     ]
+   }
+ ]
  },
  robot: {
  documentFolder: "Robot Humanoide",
  title: "Robot humanoïde marcheur",
- text: "Conception assistée par ordinateur d’un humanoïde marcheur, suivie de simulations de mouvement pour valider une démarche équilibrée et une mobilité fonctionnelle.",
- skills: ["SolidWorks", "CAO", "Simulation mécanique"]
+ meta: "Novembre 2023 – janvier 2024 · Licence · Sorbonne Université",
+ text: "Conception sous SolidWorks d’un robot bipède marcheur inspiré d’un hibou. Le projet repose sur une démarche itérative de prototypage afin de développer un mécanisme capable de reproduire une marche stable, en travaillant notamment sur les liaisons mécaniques, la synchronisation des pattes et la stabilité du mouvement.",
+ highlights: [
+   "Conception et assemblage 3D d’un robot bipède sous SolidWorks.",
+   "Développement de plusieurs prototypes et modification progressive de l’architecture mécanique afin d’améliorer la marche.",
+   "Utilisation de mécanismes de type bielle-manivelle pour convertir un mouvement de rotation en déplacement des pattes.",
+   "Analyse des problèmes de stabilité, de tangage, de synchronisation des pattes et de répartition des masses.",
+   "Validation du prototype final par simulation de marche sur sol plat et tests complémentaires sur pente et escalier."
+ ],
+ skills: [
+   "SolidWorks",
+   "CAO 3D",
+   "Assemblage mécanique",
+   "Conception de mécanismes",
+   "Cinématique",
+   "Simulation de mouvement",
+   "Bielle-manivelle",
+   "Robotique",
+   "Prototypage itératif",
+   "Analyse de stabilité"
+ ],
+ gallerySections: [
+   {
+     layout: "grid-3",
+     featuredFirst: false,
+     videos: [
+       {
+         src: "assets/projets/robot-marche-profil.mp4",
+         caption: "Marche du prototype final — vue de profil."
+       },
+       {
+         src: "assets/projets/robot-marche-trois-quarts.mp4",
+         caption: "Marche du prototype final — vue de trois-quarts."
+       },
+       {
+         src: "assets/projets/robot-marche-vue-generale.mp4",
+         caption: "Marche du prototype final — vue générale."
+       }
+     ]
+   }
+ ]
  },
- pacman: {
- documentFolder: "Pacman",
- title: "Pacman en Fortran",
- text: "Développement en équipe d’une version du jeu Pac-Man codée en Fortran, avec navigation dans un labyrinthe, gestion des fantômes et collecte de points.",
- skills: ["Fortran", "Algorithmique", "Programmation scientifique"]
+ geothermal: {
+ documentFolder: "Fondement de l'efficacité énergétique",
+ title: "Modélisation d’une pompe à chaleur géothermale",
+ meta: "Décembre 2025 – janvier 2026 · Master · Sorbonne Université",
+ text: "Modélisation numérique d’une pompe à chaleur géothermale eau/eau couplée à un champ de sondes verticales. Le modèle représente les transferts thermiques dans le sol par une équation de la chaleur bidimensionnelle avec diffusion et advection liée à l’écoulement de la nappe phréatique. Il a ensuite été enrichi pour distinguer les modes chauffage et climatisation et analyser l’évolution des performances énergétiques sur l’année.",
+ highlights: [
+   "Modélisation 2D des transferts thermiques dans le sol, avec conduction et transport advectif associé à l’écoulement de la nappe phréatique.",
+   "Couplage entre le champ thermique du sol, les pieux géothermiques et le fonctionnement énergétique de la pompe à chaleur.",
+   "Extension du modèle aux modes chauffage et climatisation avec calcul séparé des puissances thermiques, de la puissance électrique du compresseur et des échanges avec le sol.",
+   "Calcul de coefficients de performance dynamiques dépendant des températures de fonctionnement et de la température du sol au niveau des pieux.",
+   "Étude paramétrique de l’influence du maillage, de la température de la nappe phréatique et de sa vitesse d’écoulement sur les performances du système."
+ ],
+ skills: [
+   "Python",
+   "Simulation numérique",
+   "Pompe à chaleur",
+   "Géothermie",
+   "Transferts thermiques",
+   "Diffusion-advection",
+   "Équation de la chaleur 2D",
+   "Efficacité énergétique",
+   "COP",
+   "Analyse paramétrique",
+   "NumPy",
+   "SciPy",
+   "Matplotlib"
+ ]
  },
 };
 
@@ -905,20 +1091,33 @@ const experienceData = {
   cnrs: {
     title: "Stage M1 — CNRS / Laboratoire FAST",
     text:
-      "Stage de recherche réalisé de juin à août 2026 au laboratoire FAST " +
+      "Stage de recherche réalisé du 3 juin au 25 août 2026 au laboratoire FAST " +
       "(Fluides, Automatique et Systèmes Thermiques) à Orsay. " +
-      "Le travail portait sur l’étude numérique, d’abord en deux dimensions " +
-      "puis en trois dimensions, d’un film liquide tombant sur un substrat corrugué. " +
-      "Ce stage m’a permis de travailler sur la simulation numérique appliquée " +
-      "à la mécanique des fluides et sur l’analyse de résultats de simulation.",
+      "Le travail porte sur l’étude numérique bidimensionnelle puis tridimensionnelle " +
+      "d’un film liquide tombant sur des substrats plans et corrugués. " +
+      "Les simulations sont réalisées avec Basilisk C pour résoudre les équations " +
+      "de Navier–Stokes incompressibles en écoulement diphasique, avec suivi " +
+      "de l’interface par méthode VOF et maillage adaptatif. La démarche comprend " +
+      "une validation 2D à partir de résultats expérimentaux et numériques de la littérature, " +
+      "l’étude de parois corruguées sinusoïdales et rectangulaires, puis une extension " +
+      "aux simulations 3D afin d’analyser l’apparition de structures transverses.",
     skills: [
+      "Basilisk C",
       "Simulation numérique",
       "Mécanique des fluides",
-      "Modélisation 2D",
-      "Modélisation 3D",
-      "Analyse de résultats",
-      "Recherche scientifique"
-    ]
+      "Navier–Stokes",
+      "Écoulements diphasiques",
+      "Volume of Fluid (VOF)",
+      "Maillage adaptatif",
+      "Modélisation 2D / 3D",
+      "Validation numérique / expérimentale",
+      "Analyse de résultats"
+    ],
+    poster: {
+      src: "assets/stage-fast-poster.png",
+      alt: "Poster du stage au laboratoire FAST consacré à l’étude numérique 2D et 3D d’un film liquide tombant sur un substrat corrugué",
+      caption: "Poster de stage — étude numérique bidimensionnelle et tridimensionnelle d’un film liquide tombant sur un substrat corrugué."
+    }
   }
 };
 
@@ -926,6 +1125,9 @@ const experienceModal = document.getElementById("experienceModal");
 const experienceModalTitle = document.getElementById("experienceModalTitle");
 const experienceModalText = document.getElementById("experienceModalText");
 const experienceModalSkills = document.getElementById("experienceModalSkills");
+const experienceModalPoster = document.getElementById("experienceModalPoster");
+const experienceModalPosterImage = document.getElementById("experienceModalPosterImage");
+const experienceModalPosterCaption = document.getElementById("experienceModalPosterCaption");
 
 function openExperienceModal(experience) {
   if (
@@ -946,6 +1148,20 @@ function openExperienceModal(experience) {
     chip.textContent = skill;
     experienceModalSkills.appendChild(chip);
   });
+
+  if (
+    experience.poster &&
+    experienceModalPoster &&
+    experienceModalPosterImage &&
+    experienceModalPosterCaption
+  ) {
+    experienceModalPosterImage.src = experience.poster.src;
+    experienceModalPosterImage.alt = experience.poster.alt || "";
+    experienceModalPosterCaption.textContent = experience.poster.caption || "";
+    experienceModalPoster.hidden = false;
+  } else if (experienceModalPoster) {
+    experienceModalPoster.hidden = true;
+  }
 
   experienceModal.classList.add("is-open");
   experienceModal.setAttribute("aria-hidden", "false");

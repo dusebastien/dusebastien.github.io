@@ -1037,12 +1037,13 @@ html[data-theme="dark"] .experience-logo {
     );
 }
 
-.pacman {
+.geothermal {
   background:
     linear-gradient(
       135deg,
-      #111827,
-      #d97706
+      #0f172a,
+      #0f766e 52%,
+      #38bdf8
     );
 }
 
@@ -2273,3 +2274,59 @@ footer {
 }
 
 
+
+
+/* =========================================================
+   EXPÉRIENCE — POSTER DE STAGE FAST
+   ========================================================= */
+
+.experience-modal-dialog {
+  width: min(1120px, calc(100% - 32px));
+  max-height: 90vh;
+
+  margin: 5vh auto;
+
+  overflow-y: auto;
+}
+
+.experience-poster {
+  margin: 28px 0 0;
+
+  overflow: hidden;
+
+  border: 1px solid var(--line);
+  border-radius: 18px;
+
+  background: #ffffff;
+}
+
+.experience-poster img {
+  width: 100%;
+  height: auto;
+
+  display: block;
+}
+
+.experience-poster figcaption {
+  padding: 12px 14px 14px;
+
+  border-top: 1px solid var(--line);
+
+  background: var(--surface-2);
+  color: var(--muted);
+
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 680px) {
+  .experience-modal-dialog {
+    width: calc(100% - 20px);
+    margin: 2vh auto;
+    padding: 24px 18px;
+  }
+
+  .experience-poster {
+    border-radius: 12px;
+  }
+}
