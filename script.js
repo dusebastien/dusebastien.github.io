@@ -446,7 +446,7 @@ async function renderProjectDocuments() {
       return;
     }
 
-    projectDocuments.forEach(document => {
+    projectDocuments.forEach(file => {
       const button = document.createElement("button");
       button.className = "private-document-card";
       button.type = "button";
@@ -454,19 +454,19 @@ async function renderProjectDocuments() {
       const icon = document.createElement("span");
       icon.className = "private-document-icon";
       icon.setAttribute("aria-hidden", "true");
-      icon.textContent = getFileExtension(document.key);
+      icon.textContent = getFileExtension(file.key);
 
       const info = document.createElement("span");
       info.className = "private-document-info";
 
       const title = document.createElement("strong");
-      title.textContent = prettifyFileName(document.key);
+      title.textContent = prettifyFileName(file.key);
 
       const meta = document.createElement("span");
-      const size = formatFileSize(document.size);
+      const size = formatFileSize(file.size);
       meta.textContent = size
-        ? `${getFileExtension(document.key)} · ${size}`
-        : getFileExtension(document.key);
+        ? `${getFileExtension(file.key)} · ${size}`
+        : getFileExtension(file.key);
 
       info.append(title, meta);
 
@@ -478,7 +478,7 @@ async function renderProjectDocuments() {
       button.append(icon, info, arrow);
 
       button.addEventListener("click", () => {
-        openPrivateDocument(document);
+        openPrivateDocument(file);
       });
 
       privateDocumentsList.appendChild(button);
