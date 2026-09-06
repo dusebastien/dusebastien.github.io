@@ -50,6 +50,11 @@ updateThemeButton();
 
 
 const projectData = {
+ combustion: {
+ title: "Simulation numérique d’une flamme hydrogène/air",
+ text: "Étude numérique sous MATLAB de la combustion d’un mélange hydrogène/air. Le projet combine thermodynamique, propriétés de transport et cinétique chimique : calcul de la température adiabatique de flamme et de son évolution avec la richesse, analyse de la conductivité thermique et des coefficients de diffusion, étude des espèces radicalaires et du taux de production de H2O, puis modélisation d’une flamme monodimensionnelle. La température adiabatique atteint environ 2520 K au voisinage de la stœchiométrie.",
+ skills: ["MATLAB", "Combustion", "Thermodynamique", "Cinétique chimique", "Transport", "Flamme 1D", "Hydrogène"]
+ },
  thermo: {
  title: "Modélisation numérique des propriétés thermodynamiques et des ondes de choc",
  text: "Développement d’un programme modulaire pour modéliser les propriétés thermodynamiques de gaz à capacités calorifiques variables et simuler des ondes de choc normales. Le projet mobilise notamment la méthode de Newton pour calculer température, pression et masse volumique.",
@@ -85,16 +90,6 @@ const projectData = {
  text: "Développement en équipe d’une version du jeu Pac-Man codée en Fortran, avec navigation dans un labyrinthe, gestion des fantômes et collecte de points.",
  skills: ["Fortran", "Algorithmique", "Programmation scientifique"]
  },
- fall: {
- title: "Projet numérique — Chute libre",
- text: "Simulation en Python de la chute libre de Felix Baumgartner en combinant mécanique et informatique. La trajectoire est modélisée à partir d’équations mécaniques avec prise en compte de la résistance de l’air et de la masse.",
- skills: ["Python", "Mécanique", "Modélisation", "Spyder"]
- },
- converter: {
- title: "Convertisseur universel",
- text: "Conception d’une interface Python avec Tkinter permettant de convertir distances, durées, masses, puissances, températures et volumes dans les unités souhaitées.",
- skills: ["Python", "Tkinter", "PyCharm", "Interface graphique"]
- }
 };
 
 

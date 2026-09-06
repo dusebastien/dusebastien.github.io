@@ -969,6 +969,17 @@ html[data-theme="dark"] .experience-logo {
 
 /* Couleurs de cartes */
 
+
+.combustion {
+  background:
+    linear-gradient(
+      135deg,
+      #2b0a0a,
+      #b91c1c 55%,
+      #f97316
+    );
+}
+
 .thermo {
   background:
     linear-gradient(
@@ -1035,23 +1046,7 @@ html[data-theme="dark"] .experience-logo {
     );
 }
 
-.fall {
-  background:
-    linear-gradient(
-      135deg,
-      #3f1d0b,
-      #c2410c
-    );
-}
 
-.converter {
-  background:
-    linear-gradient(
-      135deg,
-      #172554,
-      #2563eb
-    );
-}
 
 
 /* =========================================================
