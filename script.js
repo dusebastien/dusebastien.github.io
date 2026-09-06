@@ -13,52 +13,33 @@ document.querySelectorAll(".nav-links a").forEach(link => {
   });
 });
 
-document.getElementById("year").textContent = new Date().getFullYear();
+const year = document.getElementById("year");
+if (year) year.textContent = new Date().getFullYear();
 
-const projectData = {
-  robot: {
-    title: "Humanoid Walking Robot",
-    text: "Ajoute ici une description plus détaillée : contexte du projet, objectif, ton rôle personnel, difficultés rencontrées, outils utilisés et résultat obtenu."
-  },
-  pacman: {
-    title: "Project Pacman",
-    text: "Présente ici la logique du projet, les technologies utilisées, ce que tu as développé toi-même et ce que ce projet t’a appris."
-  },
-  generic: {
-    title: "Ton troisième projet",
-    text: "Remplace cette fiche par l’un de tes projets les plus solides. Pour un recruteur, privilégie les projets récents et ceux qui montrent clairement tes compétences actuelles."
+
+const themeToggle = document.querySelector(".theme-toggle");
+
+function applyTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  localStorage.setItem("portfolio-theme", theme);
+
+  if (themeToggle) {
+    const isDark = theme === "dark";
+    themeToggle.setAttribute(
+      "aria-label",
+      isDark ? "Activer le mode clair" : "Activer le mode sombre"
+    );
+    themeToggle.setAttribute(
+      "title",
+      isDark ? "Mode clair" : "Mode sombre"
+    );
   }
-};
-
-const modal = document.getElementById("projectModal");
-const modalTitle = document.getElementById("modalTitle");
-const modalText = document.getElementById("modalText");
-
-document.querySelectorAll("[data-project]").forEach(button => {
-  button.addEventListener("click", () => {
-    const project = projectData[button.dataset.project];
-    if (!project) return;
-
-    modalTitle.textContent = project.title;
-    modalText.textContent = project.text;
-    modal.classList.add("is-open");
-    modal.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-  });
-});
-
-function closeModal() {
-  modal.classList.remove("is-open");
-  modal.setAttribute("aria-hidden", "true");
-  document.body.style.overflow = "";
 }
 
-document.querySelectorAll("[data-close-modal]").forEach(element => {
-  element.addEventListener("click", closeModal);
+themeToggle?.addEventListener("click", () => {
+  const current = document.documentElement.dataset.theme || "light";
+  applyTheme(current === "dark" ? "light" : "dark");
 });
 
-document.addEventListener("keydown", event => {
-  if (event.key === "Escape" && modal.classList.contains("is-open")) {
-    closeModal();
-  }
-});
+// Met à jour le libellé du bouton au chargement
+applyTheme(document.documentElement.dataset.theme || "light");

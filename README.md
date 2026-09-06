@@ -55,3 +55,22 @@ Ne mets pas dans ce dépôt public :
 - informations personnelles d'autres étudiants.
 
 Pour les rapports complets, préfère une transmission sur demande ou un espace privé séparé.
+
+
+## Version 2
+
+Les 9 projets sont désormais classés du plus récent au plus ancien. Le projet « Simulation de vagues infinies en 2D » est explicitement mis en avant.
+
+## Mode clair / sombre
+
+Cette version inclut un bouton de thème dans la barre de navigation.
+
+- suit le thème du système au premier chargement ;
+- permet de basculer manuellement entre clair et sombre ;
+- mémorise le choix dans le navigateur.
+
+
+## Coordonnées intégrées
+
+- LinkedIn : https://www.linkedin.com/in/sebastiendu/
+- E-mail : Sebastien.Du@etu.sorbonne-universite.fr
