@@ -92,7 +92,8 @@ const projectData = {
    "Cinétique chimique",
    "Modélisation 1D",
    "Analyse de données"
- ]
+ ],
+ galleryLayout: "uniform-grid"
  },
  thermo: {
  documentFolder: "Calcul Scientifique",
@@ -152,6 +153,55 @@ const projectData = {
    "Méthodes numériques",
    "Modélisation physique",
    "Analyse de données"
+ ],
+ gallerySections: [
+   {
+     layout: "grid-2",
+     featuredFirst: false,
+     images: [
+       {
+         src: "assets/projets/thermo-m2-air.png",
+         alt: "Mach aval M2 en fonction du Mach amont M1 pour différentes températures",
+         caption: "Mach aval M₂ en fonction du Mach amont M₁."
+       },
+       {
+         src: "assets/projets/thermo-p2-p1-temperatures.png",
+         alt: "Rapport de pression statique p2 sur p1 en fonction du Mach amont pour différentes températures",
+         caption: "Rapport p₂/p₁ en fonction de M₁ pour différentes températures amont."
+       },
+       {
+         src: "assets/projets/thermo-pt2-pt1.png",
+         alt: "Rapport de pression totale pt2 sur pt1 en fonction du Mach amont",
+         caption: "Rapport de pression totale pₜ₂/pₜ₁ en fonction de M₁."
+       },
+       {
+         src: "assets/projets/thermo-rho2-rho1-temperatures.png",
+         alt: "Rapport de masse volumique rho2 sur rho1 en fonction du Mach amont pour différentes températures",
+         caption: "Rapport ρ₂/ρ₁ en fonction de M₁ pour différentes températures amont."
+       }
+     ]
+   },
+   {
+     layout: "grid-3",
+     featuredFirst: false,
+     images: [
+       {
+         src: "assets/projets/thermo-p2-p1-gamma.png",
+         alt: "Rapport de pression p2 sur p1 pour différents modèles thermodynamiques",
+         caption: "Rapport p₂/p₁ : comparaison des différents modèles de γ."
+       },
+       {
+         src: "assets/projets/thermo-rho2-rho1-gamma.png",
+         alt: "Rapport de masse volumique rho2 sur rho1 pour différents modèles thermodynamiques",
+         caption: "Rapport ρ₂/ρ₁ : comparaison des différents modèles de γ."
+       },
+       {
+         src: "assets/projets/thermo-t2-t1-gamma.png",
+         alt: "Rapport de température T2 sur T1 pour différents modèles thermodynamiques",
+         caption: "Rapport T₂/T₁ : comparaison des différents modèles de γ."
+       }
+     ]
+   }
  ]
  },
  phase: {
@@ -200,6 +250,39 @@ const projectData = {
    "Transferts thermiques",
    "Changement de phase",
    "Modélisation numérique"
+ ],
+ gallerySections: [
+   {
+     layout: "single",
+     featuredFirst: false,
+     videos: [
+       {
+         src: "assets/projets/solidification.mp4",
+         caption: "Évolution temporelle de la solidification 2D — progression du front depuis les parois froides vers le centre."
+       }
+     ]
+   },
+   {
+     layout: "grid-3",
+     featuredFirst: false,
+     images: [
+       {
+         src: "assets/projets/solidification-initial.png",
+         alt: "État initial du domaine avant solidification",
+         caption: "État initial — domaine entièrement liquide au début de la simulation."
+       },
+       {
+         src: "assets/projets/solidification-intermediaire.png",
+         alt: "État intermédiaire de la solidification bidimensionnelle",
+         caption: "État intermédiaire — progression du front de solidification depuis les quatre parois."
+       },
+       {
+         src: "assets/projets/solidification-final.png",
+         alt: "État final du domaine après solidification",
+         caption: "État final — domaine quasiment entièrement solidifié."
+       }
+     ]
+   }
  ]
  },
  waves: {
@@ -286,55 +369,93 @@ function openModal(project) {
   }
 
   modalGallery.replaceChildren();
+  modalGallery?.classList.remove("project-modal-gallery-uniform");
 
-  let mediaIndex = 0;
+  function createGalleryFigure(media, type, isFeatured) {
+    const figure = document.createElement("figure");
+    figure.className = isFeatured
+      ? "project-gallery-item project-gallery-item-featured"
+      : "project-gallery-item";
 
-  if (Array.isArray(project.videos) && project.videos.length) {
-    project.videos.forEach(video => {
-      const figure = document.createElement("figure");
-      figure.className =
-        mediaIndex === 0
-          ? "project-gallery-item project-gallery-item-featured"
-          : "project-gallery-item";
-
+    if (type === "video") {
       const player = document.createElement("video");
-      player.src = video.src;
+      player.src = media.src;
       player.controls = true;
       player.preload = "metadata";
       player.playsInline = true;
-
-      const caption = document.createElement("figcaption");
-      caption.textContent = video.caption || "";
-
-      figure.append(player, caption);
-      modalGallery.appendChild(figure);
-      mediaIndex += 1;
-    });
-  }
-
-  if (Array.isArray(project.images) && project.images.length) {
-    project.images.forEach(image => {
-      const figure = document.createElement("figure");
-      figure.className =
-        mediaIndex === 0
-          ? "project-gallery-item project-gallery-item-featured"
-          : "project-gallery-item";
-
+      figure.appendChild(player);
+    } else {
       const img = document.createElement("img");
-      img.src = image.src;
-      img.alt = image.alt || "";
+      img.src = media.src;
+      img.alt = media.alt || "";
       img.loading = "lazy";
+      figure.appendChild(img);
+    }
 
-      const caption = document.createElement("figcaption");
-      caption.textContent = image.caption || "";
+    const caption = document.createElement("figcaption");
+    caption.textContent = media.caption || "";
+    figure.appendChild(caption);
 
-      figure.append(img, caption);
-      modalGallery.appendChild(figure);
-      mediaIndex += 1;
-    });
+    return figure;
   }
 
-  modalGallery.hidden = mediaIndex === 0;
+  function getSectionLayoutClass(layout) {
+    switch (layout) {
+      case "grid-2":
+        return "project-gallery-section layout-grid-2";
+      case "grid-3":
+        return "project-gallery-section layout-grid-3";
+      case "single":
+        return "project-gallery-section layout-single";
+      default:
+        return "project-gallery-section layout-default";
+    }
+  }
+
+  const gallerySections =
+    Array.isArray(project.gallerySections) && project.gallerySections.length
+      ? project.gallerySections
+      : [
+          {
+            layout:
+              project.galleryLayout === "uniform-grid" ? "grid-2" : "default",
+            featuredFirst: project.galleryLayout !== "uniform-grid",
+            videos: Array.isArray(project.videos) ? project.videos : [],
+            images: Array.isArray(project.images) ? project.images : []
+          }
+        ];
+
+  let mediaCount = 0;
+
+  gallerySections.forEach(section => {
+    const sectionElement = document.createElement("div");
+    sectionElement.className = getSectionLayoutClass(section.layout);
+
+    const sectionVideos = Array.isArray(section.videos) ? section.videos : [];
+    const sectionImages = Array.isArray(section.images) ? section.images : [];
+
+    let sectionIndex = 0;
+
+    sectionVideos.forEach(video => {
+      const isFeatured = !!section.featuredFirst && sectionIndex === 0;
+      sectionElement.appendChild(createGalleryFigure(video, "video", isFeatured));
+      sectionIndex += 1;
+      mediaCount += 1;
+    });
+
+    sectionImages.forEach(image => {
+      const isFeatured = !!section.featuredFirst && sectionIndex === 0;
+      sectionElement.appendChild(createGalleryFigure(image, "image", isFeatured));
+      sectionIndex += 1;
+      mediaCount += 1;
+    });
+
+    if (sectionIndex > 0) {
+      modalGallery.appendChild(sectionElement);
+    }
+  });
+
+  modalGallery.hidden = mediaCount === 0;
 
   modalHighlightsList.replaceChildren();
 
@@ -370,6 +491,7 @@ function closeModal() {
   modalGallery?.querySelectorAll("video").forEach(video => {
     video.pause();
   });
+  modalGallery?.classList.remove("project-modal-gallery-uniform");
   closePdfViewer();
   modal.classList.remove("is-open");
   modal.setAttribute("aria-hidden", "true");
