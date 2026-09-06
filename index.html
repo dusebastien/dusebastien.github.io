@@ -928,7 +928,6 @@
 
   <!-- =========================================================
        MODALE PROJET
-       Compatible avec ton script.js actuel
        ========================================================= -->
   <div
     class="modal"
@@ -942,7 +941,7 @@
     ></div>
 
     <div
-      class="modal-dialog"
+      class="modal-dialog modal-project-dialog"
       role="dialog"
       aria-modal="true"
       aria-labelledby="modalTitle"
@@ -965,17 +964,101 @@
         Projet
       </h2>
 
-      <p id="modalText"></p>
+      <p
+        class="project-modal-meta"
+        id="modalProjectMeta"
+        hidden
+      ></p>
 
       <div
-        id="modalSkills"
-        class="modal-skills"
+        class="project-modal-gallery"
+        id="modalGallery"
+        hidden
       ></div>
 
-      <div class="modal-note">
-        🔒 Les rapports complets et documents associés peuvent être
-        transmis aux recruteurs sur demande.
+      <div class="project-modal-description">
+        <h3>Présentation</h3>
+        <p id="modalText"></p>
       </div>
+
+      <div
+        class="project-modal-highlights"
+        id="modalHighlights"
+        hidden
+      >
+        <h3>Points clés</h3>
+        <ul id="modalHighlightsList"></ul>
+      </div>
+
+      <div class="project-modal-skills-block">
+        <h3>Compétences &amp; outils</h3>
+
+        <div
+          id="modalSkills"
+          class="modal-skills"
+        ></div>
+      </div>
+
+      <!--
+        PROTOTYPE UNIQUEMENT :
+        aucun rapport privé n'est stocké dans GitHub Pages.
+      -->
+      <section
+        class="private-documents"
+        id="privateDocuments"
+      >
+        <div class="private-documents-heading">
+          <div class="private-lock-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <rect x="5" y="10" width="14" height="11" rx="2"></rect>
+              <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+            </svg>
+          </div>
+
+          <div>
+            <p class="private-eyebrow">Espace recruteur</p>
+            <h3>Documents complets</h3>
+            <p>
+              Rapports, présentations et documents complémentaires.
+            </p>
+          </div>
+        </div>
+
+        <form
+          class="private-access-form"
+          id="privateAccessForm"
+        >
+          <label for="privatePassword">
+            Mot de passe
+          </label>
+
+          <div class="private-access-row">
+            <input
+              id="privatePassword"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              placeholder="••••••••••••"
+              required
+            >
+
+            <button
+              class="btn btn-primary"
+              type="submit"
+            >
+              Déverrouiller
+            </button>
+          </div>
+
+          <p
+            class="private-access-message"
+            id="privateAccessMessage"
+            aria-live="polite"
+          >
+            Mode prototype : aucun document privé n’est stocké sur ce site.
+          </p>
+        </form>
+      </section>
 
     </div>
   </div>

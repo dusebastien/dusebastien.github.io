@@ -1697,3 +1697,252 @@ footer {
 .project-actions .text-button:hover {
   color: var(--accent);
 }
+
+
+/* =========================================================
+   FICHE PROJET DÉTAILLÉE — TEST COMBUSTION
+   ========================================================= */
+
+.modal-project-dialog {
+  width: min(960px, calc(100% - 32px));
+  max-height: 86vh;
+  overflow-y: auto;
+}
+
+.project-modal-meta {
+  margin: -3px 0 24px;
+
+  color: var(--muted);
+
+  font-size: 0.82rem;
+  font-weight: 650;
+}
+
+.project-modal-gallery {
+  margin: 28px 0 34px;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 14px;
+}
+
+.project-gallery-item {
+  margin: 0;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  border: 1px solid var(--line);
+  border-radius: 18px;
+
+  background: var(--surface-2);
+}
+
+.project-gallery-item-featured {
+  grid-column: 1 / -1;
+}
+
+.project-gallery-item img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+
+  display: block;
+
+  object-fit: contain;
+
+  background: #ffffff;
+}
+
+.project-gallery-item-featured img {
+  aspect-ratio: 16 / 8.7;
+}
+
+.project-gallery-item figcaption {
+  padding: 11px 13px 13px;
+
+  color: var(--muted);
+
+  font-size: 0.76rem;
+  line-height: 1.4;
+}
+
+.project-modal-description,
+.project-modal-highlights,
+.project-modal-skills-block {
+  margin-top: 28px;
+}
+
+.project-modal-description h3,
+.project-modal-highlights h3,
+.project-modal-skills-block h3,
+.private-documents h3 {
+  margin: 0 0 10px;
+
+  font-size: 1.02rem;
+  letter-spacing: -0.02em;
+}
+
+.project-modal-description p {
+  margin: 0;
+
+  color: var(--muted);
+}
+
+.project-modal-highlights ul {
+  margin: 0;
+  padding-left: 20px;
+
+  color: var(--muted);
+}
+
+.project-modal-highlights li + li {
+  margin-top: 8px;
+}
+
+
+/* =========================================================
+   ZONE DOCUMENTS PRIVÉS — PROTOTYPE
+   ========================================================= */
+
+.private-documents {
+  margin-top: 34px;
+  padding: 22px;
+
+  border: 1px solid var(--line);
+  border-radius: 20px;
+
+  background: var(--surface-2);
+}
+
+.private-documents-heading {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 14px;
+}
+
+.private-lock-icon {
+  width: 42px;
+  height: 42px;
+
+  flex: 0 0 42px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 13px;
+
+  background: var(--surface);
+  color: var(--accent);
+}
+
+.private-lock-icon svg {
+  width: 20px;
+  height: 20px;
+
+  fill: none;
+  stroke: currentColor;
+
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.private-eyebrow {
+  margin: 0 0 2px;
+
+  color: var(--accent);
+
+  font-size: 0.68rem;
+  font-weight: 800;
+
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.private-documents-heading h3 {
+  margin-bottom: 3px;
+}
+
+.private-documents-heading p:last-child {
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 0.82rem;
+}
+
+.private-access-form {
+  margin-top: 20px;
+}
+
+.private-access-form label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  font-size: 0.76rem;
+  font-weight: 750;
+}
+
+.private-access-row {
+  display: flex;
+
+  gap: 9px;
+}
+
+.private-access-row input {
+  min-width: 0;
+  flex: 1;
+
+  min-height: 48px;
+
+  padding: 0 14px;
+
+  border: 1px solid var(--line);
+  border-radius: 13px;
+
+  background: var(--surface);
+  color: var(--text);
+
+  font: inherit;
+}
+
+.private-access-row input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+
+  border-color: var(--accent);
+}
+
+.private-access-message {
+  margin: 10px 0 0;
+
+  color: var(--muted);
+
+  font-size: 0.74rem;
+}
+
+.private-access-message.is-warning {
+  color: var(--accent);
+}
+
+@media (max-width: 680px) {
+  .project-modal-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .project-gallery-item-featured {
+    grid-column: auto;
+  }
+
+  .private-access-row {
+    flex-direction: column;
+  }
+
+  .private-access-row .btn {
+    width: 100%;
+  }
+}
