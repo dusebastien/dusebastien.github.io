@@ -499,6 +499,34 @@ const projectData = {
    "NumPy",
    "SciPy",
    "Matplotlib"
+ ],
+ gallerySections: [
+   {
+     layout: "grid-2",
+     featuredFirst: false,
+     images: [
+       {
+         src: "assets/projets/geothermal-cop.png",
+         alt: "Évolution annuelle des COP en modes chauffage et climatisation",
+         caption: "Évolution annuelle des coefficients de performance (COP) en modes chauffage et climatisation."
+       },
+       {
+         src: "assets/projets/geothermal-temperatures.png",
+         alt: "Évolution de la température extérieure et de la température du sol au niveau des pieux",
+         caption: "Évolution de la température extérieure et de la température du sol au niveau des pieux."
+       },
+       {
+         src: "assets/projets/geothermal-puissances-thermiques.png",
+         alt: "Puissances thermiques demandées pour le chauffage et la climatisation",
+         caption: "Puissances thermiques demandées pour le chauffage et la climatisation au cours de l’année."
+       },
+       {
+         src: "assets/projets/geothermal-compresseur.png",
+         alt: "Évolution de la puissance électrique du compresseur",
+         caption: "Évolution de la puissance électrique du compresseur au cours de l’année."
+       }
+     ]
+   }
  ]
  },
 };
