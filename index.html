@@ -1,13 +1,18 @@
 <!DOCTYPE html>
-
-<html data-theme="light" lang="fr">
+<html lang="fr" data-theme="light">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Portfolio de Sébastien Du — étudiant en Master 2 à Sorbonne Université, spécialisé en simulation numérique, aérodynamique, mécanique des fluides et thermodynamique." name="description"/>
-<title>Sébastien Du — Portfolio</title>
-<!-- Évite un flash du mauvais thème au chargement -->
-<script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Portfolio de Sébastien Du — étudiant en Master 2 à Sorbonne Université, spécialisé en simulation numérique, aérodynamique, mécanique des fluides et thermodynamique."
+  >
+
+  <title>Sébastien Du — Portfolio</title>
+
+  <!-- Évite un flash du mauvais thème au chargement -->
+  <script>
     (() => {
       try {
         const savedTheme = localStorage.getItem("sebastien-portfolio-theme");
@@ -22,726 +27,1189 @@
       }
     })();
   </script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="style.css" rel="stylesheet"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<!-- =========================================================
+
+  <!-- =========================================================
        NAVIGATION
        ========================================================= -->
-<header class="site-header">
-<div class="container nav">
-<a class="brand" href="#accueil">
+  <header class="site-header">
+    <div class="container nav">
+
+      <a class="brand" href="#accueil">
         Sébastien Du<span>.</span>
-</a>
-<nav class="nav-links" id="mainNav">
-<a href="#accueil">Accueil</a>
-<a href="#apropos">À propos</a>
-<a href="#experiences">Expériences</a>
-<a href="#projets">Projets</a>
-<a href="#competences">Compétences</a>
-<a href="#contact">Contact</a>
-</nav>
-<div class="nav-actions">
-<!-- Light / Dark -->
-<button aria-label="Activer le mode sombre" class="theme-toggle" title="Changer le thème" type="button">
-<svg aria-hidden="true" class="sun-icon" viewbox="0 0 24 24">
-<circle cx="12" cy="12" r="4"></circle>
-<path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path>
-</svg>
-<svg aria-hidden="true" class="moon-icon" viewbox="0 0 24 24">
-<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-</svg>
-</button>
-<!-- Menu mobile -->
-<button aria-controls="mainNav" aria-expanded="false" aria-label="Ouvrir le menu" class="menu-toggle" type="button">
+      </a>
+
+      <nav class="nav-links" id="mainNav">
+        <a href="#accueil">Accueil</a>
+        <a href="#apropos">À propos</a>
+        <a href="#experiences">Expériences</a>
+        <a href="#projets">Projets</a>
+        <a href="#competences">Compétences</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+
+        <!-- Light / Dark -->
+        <button
+          class="theme-toggle"
+          type="button"
+          aria-label="Activer le mode sombre"
+          title="Changer le thème"
+        >
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path
+              d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"
+            ></path>
+          </svg>
+
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Menu mobile -->
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Ouvrir le menu"
+          aria-expanded="false"
+          aria-controls="mainNav"
+        >
           ☰
         </button>
-</div>
-</div>
-</header>
-<main>
-<!-- =========================================================
+
+      </div>
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- =========================================================
          ACCUEIL
          ========================================================= -->
-<section class="hero" id="accueil">
-<div class="container hero-grid">
-<div class="hero-copy">
-<p class="eyebrow">
+    <section class="hero" id="accueil">
+      <div class="container hero-grid">
+
+        <div class="hero-copy">
+
+          <p class="eyebrow">
             Étudiant en Master 2 · Sorbonne Université
           </p>
-<h1>
+
+          <h1>
             Ingénierie, simulation &amp; innovation.
           </h1>
-<p class="hero-text">
+
+          <p class="hero-text">
             Bienvenue sur mon portfolio. J’y présente mes travaux en simulation numérique,
             mécanique des fluides, aérodynamique, thermodynamique et programmation scientifique.
             Je suis actuellement à la recherche d’un stage de fin d’études de 6 mois.
           </p>
-<div class="hero-actions">
-<a class="btn btn-primary" href="#projets">
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projets">
               Voir mes projets
             </a>
-<a class="btn btn-secondary" href="assets/CV_Sebastien.pdf" rel="noopener" target="_blank">
+
+            <a
+              class="btn btn-secondary"
+              href="assets/CV_Sebastien.pdf"
+              target="_blank"
+              rel="noopener"
+            >
               Voir mon CV
             </a>
-</div>
-<!-- Les coordonnées ne sont pas affichées en clair -->
-<div class="social-links">
-<a href="https://github.com/dusebastien" rel="noopener" target="_blank">
+          </div>
+
+          <!-- Les coordonnées ne sont pas affichées en clair -->
+          <div class="social-links">
+            <a
+              href="https://github.com/dusebastien"
+              target="_blank"
+              rel="noopener"
+            >
               GitHub
             </a>
-<a href="https://www.linkedin.com/in/sebastiendu/" rel="noopener" target="_blank">
+
+            <a
+              href="https://www.linkedin.com/in/sebastiendu/"
+              target="_blank"
+              rel="noopener"
+            >
               LinkedIn
             </a>
-<a href="mailto:Sebastien.Du@etu.sorbonne-universite.fr">
+
+            <a href="mailto:Sebastien.Du@etu.sorbonne-universite.fr">
               E-mail
             </a>
-</div>
-</div>
-<!-- Carte profil -->
-<aside class="hero-card">
-<div class="avatar">
-<img alt="Photo de Sébastien Du" src="assets/photo_sebastien.png"/>
-</div>
-<p class="hero-card-label">Profil</p>
-<h2>Sébastien Du</h2>
-<p class="profile-availability">
+          </div>
+
+        </div>
+
+
+        <!-- Carte profil -->
+        <aside class="hero-card">
+
+          <div class="avatar">
+            <img
+              src="assets/photo_sebastien.png"
+              alt="Photo de Sébastien Du"
+            >
+          </div>
+
+          <p class="hero-card-label">Profil</p>
+
+          <h2>Sébastien Du</h2>
+
+          <p class="profile-availability">
             À la recherche d’un stage de 6 mois à partir de février 2027.
           </p>
-<!-- 3 carrés demandés -->
-<div class="mini-stats">
-<div class="mini-stat">
-<div aria-hidden="true" class="mini-stat-icon">
-<!-- Livres -->
-<svg viewbox="0 0 24 24">
-<path d="M4 5.5h7v13H4a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2Z"></path>
-<path d="M13 3.5h7a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-7v-15Z"></path>
-<path d="M6 8.5h3"></path>
-<path d="M15 7h4"></path>
-</svg>
-</div>
-<div>
-<strong>M2</strong>
-<span>Sciences de l’ingénieur</span>
-</div>
-</div>
-<div class="mini-stat">
-<div aria-hidden="true" class="mini-stat-icon">
-<!-- Avion -->
-<svg viewbox="0 0 24 24">
-<path d="M22 2 9.6 14.4"></path>
-<path d="m22 2-7.2 20-4.1-7.7L3 10.2 22 2Z"></path>
-</svg>
-</div>
-<div>
-<strong>Aéronautique &amp; Énergétique</strong>
-<span>Secteurs visés</span>
-</div>
-</div>
-<div class="mini-stat">
-<div aria-hidden="true" class="mini-stat-icon">
-<!-- Localisation -->
-<svg viewbox="0 0 24 24">
-<path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"></path>
-<circle cx="12" cy="10" r="2.5"></circle>
-</svg>
-</div>
-<div>
-<strong>Paris</strong>
-<span>Mobilité : France métropolitaine</span>
-</div>
-</div>
-</div>
-</aside>
-</div>
-</section>
-<!-- =========================================================
+
+
+          <!-- 3 carrés demandés -->
+          <div class="mini-stats">
+
+            <div class="mini-stat">
+              <div class="mini-stat-icon" aria-hidden="true">
+                <!-- Livres -->
+                <svg viewBox="0 0 24 24">
+                  <path d="M4 5.5h7v13H4a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2Z"></path>
+                  <path d="M13 3.5h7a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-7v-15Z"></path>
+                  <path d="M6 8.5h3"></path>
+                  <path d="M15 7h4"></path>
+                </svg>
+              </div>
+
+              <div>
+                <strong>M2</strong>
+                <span>Sciences de l’ingénieur</span>
+              </div>
+            </div>
+
+
+            <div class="mini-stat">
+              <div class="mini-stat-icon" aria-hidden="true">
+                <!-- Avion -->
+                <svg viewBox="0 0 24 24">
+                  <path d="M22 2 9.6 14.4"></path>
+                  <path d="m22 2-7.2 20-4.1-7.7L3 10.2 22 2Z"></path>
+                </svg>
+              </div>
+
+              <div>
+                <strong>Aéronautique &amp; Énergétique</strong>
+                <span>Secteurs visés</span>
+              </div>
+            </div>
+
+
+            <div class="mini-stat">
+              <div class="mini-stat-icon" aria-hidden="true">
+                <!-- Localisation -->
+                <svg viewBox="0 0 24 24">
+                  <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"></path>
+                  <circle cx="12" cy="10" r="2.5"></circle>
+                </svg>
+              </div>
+
+              <div>
+                <strong>Paris</strong>
+                <span>Mobilité : France métropolitaine</span>
+              </div>
+            </div>
+
+          </div>
+
+        </aside>
+
+      </div>
+    </section>
+
+
+    <!-- =========================================================
          À PROPOS
          ========================================================= -->
-<section class="section" id="apropos">
-<div class="container two-columns">
-<div>
-<p class="section-kicker">À propos</p>
-<h2 class="section-title">
+    <section class="section" id="apropos">
+      <div class="container two-columns">
+
+        <div>
+          <p class="section-kicker">À propos</p>
+
+          <h2 class="section-title">
             Un parcours construit projet après projet.
           </h2>
-</div>
-<div class="about-text">
-<p>
+        </div>
+
+        <div class="about-text">
+          <p>
             Je suis étudiant en Master 2 à Sorbonne Université. Au fil de mon parcours,
             j’ai progressivement orienté mes projets vers la simulation numérique,
             la mécanique des fluides, l’aérodynamique et la thermodynamique.
           </p>
-<p>
+
+          <p>
             Mon parcours combine projets académiques, travaux de simulation numérique réalisés en laboratoire
             et tutorat universitaire. Les rapports complets, diaporamas et documents techniques
             de certains projets sont accessibles aux recruteurs depuis un espace sécurisé.
           </p>
-</div>
-</div>
-</section>
-<!-- =========================================================
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================================================
          EXPÉRIENCES
          ========================================================= -->
-<section class="section section-muted" id="experiences">
-<div class="container">
-<div class="section-heading">
-<div>
-<p class="section-kicker">Mes expériences académiques et professionnelles
+    <section class="section section-muted" id="experiences">
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div>
+            <p class="section-kicker">Mes expériences académiques et professionnelles
             </p>
-<h2 class="section-title">
+
+            <h2 class="section-title">
               Expériences
             </h2>
-</div>
-</div>
-<div class="experience-grid">
-<!-- Stage M1 -->
-<article class="experience-card experience-clickable" data-experience-card="cnrs">
-<div class="experience-header">
-<div class="experience-logo">
-<img alt="Logo CNRS" src="assets/logo_cnrs.png"/>
-</div>
-<div>
-<div class="experience-badges">
-<span>Stage M1</span>
-<span>3 mois</span>
-</div>
-<h3>Stagiaire en laboratoire de recherche</h3>
-<p class="experience-org">
+          </div>
+
+        </div>
+
+
+        <div class="experience-grid">
+
+          <!-- Stage M1 -->
+          <article
+            class="experience-card experience-clickable"
+            data-experience-card="cnrs"
+          >
+
+            <div class="experience-header">
+
+              <div class="experience-logo">
+                <img
+                  src="assets/logo_cnrs.png"
+                  alt="Logo CNRS"
+                >
+              </div>
+
+              <div>
+                <div class="experience-badges">
+                  <span>Stage M1</span>
+                  <span>3 mois</span>
+                </div>
+
+                <h3>Stagiaire en laboratoire de recherche</h3>
+
+                <p class="experience-org">
                   CNRS · Laboratoire FAST
                 </p>
-</div>
-</div>
-<div class="experience-meta">
-<span>Juin 2026 – août 2026</span>
-<span>Orsay, Île-de-France</span>
-<span>Sur site</span>
-</div>
-<p class="experience-description">
+              </div>
+
+            </div>
+
+
+            <div class="experience-meta">
+              <span>Juin 2026 – août 2026</span>
+              <span>Orsay, Île-de-France</span>
+              <span>Sur site</span>
+            </div>
+
+
+            <p class="experience-description">
               Étude numérique en deux dimensions puis en trois dimensions d’un film
               liquide tombant sur un substrat corrugué, réalisée au laboratoire FAST
               (Fluides, Automatique et Systèmes Thermiques).
             </p>
-<div class="experience-info">
-<strong>Encadrement</strong>
-<span>Georg Dietze · Sophie Mergui</span>
-</div>
-<div class="tags">
-<span>Simulation numérique</span>
-<span>Mécanique des fluides</span>
-<span>2D / 3D</span>
-<span>Recherche</span>
-</div>
-<div class="experience-actions">
-<button class="text-button experience-more" data-experience="cnrs" type="button">
+
+
+            <div class="experience-info">
+              <strong>Encadrement</strong>
+              <span>Georg Dietze · Sophie Mergui</span>
+            </div>
+
+
+            <div class="tags">
+              <span>Simulation numérique</span>
+              <span>Mécanique des fluides</span>
+              <span>2D / 3D</span>
+              <span>Recherche</span>
+            </div>
+
+            <div class="experience-actions">
+              <button
+                class="text-button experience-more"
+                type="button"
+                data-experience="cnrs"
+              >
                 En savoir plus
               </button>
-</div>
-</article>
-<!-- Tutorat -->
-<article class="experience-card">
-<div class="experience-header">
-<div class="experience-logo">
-<img alt="Logo Sorbonne Université" src="assets/logo_sorbonne.png"/>
-</div>
-<div>
-<div class="experience-badges">
-<span>Tutorat</span>
-<span>4 mois</span>
-</div>
-<h3>Étudiant tuteur pour L3</h3>
-<p class="experience-org">
+            </div>
+
+          </article>
+
+
+          <!-- Tutorat -->
+          <article class="experience-card">
+
+            <div class="experience-header">
+
+              <div class="experience-logo">
+                <img
+                  src="assets/logo_sorbonne.png"
+                  alt="Logo Sorbonne Université"
+                >
+              </div>
+
+              <div>
+                <div class="experience-badges">
+                  <span>Tutorat</span>
+                  <span>4 mois</span>
+                </div>
+
+                <h3>Étudiant tuteur pour L3</h3>
+
+                <p class="experience-org">
                   Sorbonne Université
                 </p>
-</div>
-</div>
-<div class="experience-meta">
-<span>Fév. 2026 – mai 2026</span>
-<span>Paris</span>
-<span>Sur site</span>
-</div>
-<p class="experience-description">
+              </div>
+
+            </div>
+
+
+            <div class="experience-meta">
+              <span>Fév. 2026 – mai 2026</span>
+              <span>Paris</span>
+              <span>Sur site</span>
+            </div>
+
+
+            <p class="experience-description">
               Accompagnement d’étudiants de troisième année de licence en structures
               élastiques : mécanique des milieux continus, élasticité tridimensionnelle,
               résistance des matériaux et théorie des poutres.
             </p>
-<div class="tags">
-<span>Mécanique des milieux continus</span>
-<span>Élasticité 3D</span>
-<span>Résistance des matériaux</span>
-<span>Théorie des poutres</span>
-</div>
-</article>
-</div>
-</div>
-</section>
-<!-- =========================================================
+
+
+            <div class="tags">
+              <span>Mécanique des milieux continus</span>
+              <span>Élasticité 3D</span>
+              <span>Résistance des matériaux</span>
+              <span>Théorie des poutres</span>
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================================================
          PROJETS
          ========================================================= -->
-<section class="section" id="projets">
-<div class="container">
-<div class="section-heading">
-<div>
-<p class="section-kicker">
+    <section class="section" id="projets">
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div>
+            <p class="section-kicker">
               Projets académiques, numériques et scientifiques
             </p>
-<h2 class="section-title">
+
+            <h2 class="section-title">
               Mes projets
             </h2>
-</div>
-</div>
-<div class="projects-grid">
-<!-- Projet 1 -->
+          </div>
 
-<!-- Projet 2 -->
+        </div>
 
-<!-- Projet 3 -->
 
-<!-- Projet 4 -->
-<!-- Aucun contour spécial -->
+        <div class="projects-grid">
 
-<!-- Projet 5 -->
 
-<!-- Projet 6 -->
+          <!-- Projet 1 -->
+          <article class="project-card">
 
-<!-- Projet 7 -->
+            <div class="project-visual combustion">
+              <span>COMBUSTION · MATLAB</span>
+            </div>
 
-<!-- Projet 8 -->
+            <div class="project-content">
 
-<article class="project-card">
-<div class="project-visual combustion">
-<span>COMBUSTION · MATLAB</span>
-</div>
-<div class="project-content">
-<div class="project-meta">
-<span>Avr. 2026</span>
-<span>Master</span>
-</div>
-<h3>
+              <div class="project-meta">
+                <span>Avr. 2026</span>
+                <span>Master</span>
+              </div>
+
+              <h3>
                 Simulation numérique d’une flamme hydrogène/air
               </h3>
-<p>
+
+              <p>
                 Étude numérique sous MATLAB d’une flamme hydrogène/air,
                 combinant thermodynamique, transport et cinétique chimique.
               </p>
-<div class="tags">
-<span>MATLAB</span>
-<span>Combustion</span>
-<span>Cinétique chimique</span>
-</div>
-<div class="project-actions">
-<button class="text-button" data-project="combustion" type="button">
+
+              <div class="tags">
+                <span>MATLAB</span>
+                <span>Combustion</span>
+                <span>Cinétique chimique</span>
+              </div>
+
+              <div class="project-actions">
+<button
+                  class="text-button"
+                  type="button"
+                  data-project="combustion"
+                >
                   En savoir plus
                 </button>
-</div>
-</div>
-</article><article class="project-card">
-<div class="project-visual thermo">
-<span>THERMODYNAMIQUE</span>
-</div>
-<div class="project-content">
-<div class="project-meta">
-<span>Fév. 2026</span>
-<span>Master</span>
-</div>
-<h3>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- Projet 2 -->
+          <article class="project-card">
+
+            <div class="project-visual thermo">
+              <span>THERMODYNAMIQUE</span>
+            </div>
+
+            <div class="project-content">
+
+              <div class="project-meta">
+                <span>Fév. 2026</span>
+                <span>Master</span>
+              </div>
+
+              <h3>
                 Propriétés thermodynamiques et ondes de choc
               </h3>
-<p>
+
+              <p>
                 Programme en Fortran 2018 pour modéliser des gaz à capacités calorifiques
                 variables et étudier des ondes de choc normales.
               </p>
-<div class="tags">
-<span>Thermodynamique</span>
-<span>Newton</span>
-<span>Ondes de choc</span>
-</div>
-<div class="project-actions">
-<button class="text-button" data-project="thermo" type="button">
+
+              <div class="tags">
+                <span>Thermodynamique</span>
+                <span>Newton</span>
+                <span>Ondes de choc</span>
+              </div>
+
+              <div class="project-actions">
+<button
+                  class="text-button"
+                  type="button"
+                  data-project="thermo"
+                >
                   En savoir plus
                 </button>
-</div>
-</div>
-</article><article class="project-card">
-<div class="project-visual geothermal">
-<span>ÉNERGÉTIQUE · PYTHON</span>
-</div>
-<div class="project-content">
-<div class="project-meta">
-<span>Déc. 2025 – janv. 2026</span>
-<span>Master</span>
-</div>
-<h3>
+              </div>
+
+            </div>
+          </article>
+
+
+          <!-- Projet 8 -->
+          <article class="project-card">
+
+            <div class="project-visual geothermal">
+              <span>ÉNERGÉTIQUE · PYTHON</span>
+            </div>
+
+            <div class="project-content">
+
+              <div class="project-meta">
+                <span>Déc. 2025 – janv. 2026</span>
+                <span>Master</span>
+              </div>
+
+              <h3>
                 Modélisation d’une pompe à chaleur géothermale
               </h3>
-<p>
+
+              <p>
                 Modélisation numérique d’une PAC géothermale couplée au sol,
                 avec diffusion-advection thermique, modes chauffage/climatisation
                 et analyse des performances énergétiques.
               </p>
-<div class="tags">
-<span>Python</span>
-<span>Géothermie</span>
-<span>Transferts thermiques</span>
-</div>
-<div class="project-actions">
-<button class="text-button" data-project="geothermal" type="button">
+
+              <div class="tags">
+                <span>Python</span>
+                <span>Géothermie</span>
+                <span>Transferts thermiques</span>
+              </div>
+
+              <div class="project-actions">
+<button
+                  class="text-button"
+                  type="button"
+                  data-project="geothermal"
+                >
                   En savoir plus
                 </button>
-</div>
-</div>
-</article><article class="project-card">
-<div class="project-visual phase">
-<span>THERMIQUE 2D</span>
-</div>
-<div class="project-content">
-<div class="project-meta">
-<span>Déc. 2025</span>
-<span>Master</span>
-</div>
-<h3>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- Projet 3 -->
+          <article class="project-card">
+
+            <div class="project-visual phase">
+              <span>THERMIQUE 2D</span>
+            </div>
+
+            <div class="project-content">
+
+              <div class="project-meta">
+                <span>Déc. 2025</span>
+                <span>Master</span>
+              </div>
+
+              <h3>
                 Diffusion thermique 2D avec changement de phase
               </h3>
-<p>
+
+              <p>
                 Modélisation et simulation de la solidification avec front diffus
                 à l’aide d’une formulation enthalpique.
               </p>
-<div class="tags">
-<span>Python</span>
-<span>Différences finies</span>
-<span>Discrétisation</span>
-</div>
-<div class="project-actions">
-<button class="text-button" data-project="phase" type="button">
+
+              <div class="tags">
+                <span>Python</span>
+                <span>Différences finies</span>
+                <span>Discrétisation</span>
+              </div>
+
+              <div class="project-actions">
+<button
+                  class="text-button"
+                  type="button"
+                  data-project="phase"
+                >
                   En savoir plus
                 </button>
-</div>
-</div>
-</article><article class="project-card">
-<div class="project-visual waves">
-<span>ONDES · PYTHON</span>
-</div>
-<div class="project-content">
-<div class="project-meta">
-<span>Avr.–mai 2025</span>
-<span>Master</span>
-</div>
-<h3>
+              </div>
+
+            </div>
+          </article>
+
+
+          <!-- Projet 4 -->
+          <!-- Aucun contour spécial -->
+          <article class="project-card">
+
+            <div class="project-visual waves">
+              <span>ONDES · PYTHON</span>
+            </div>
+
+            <div class="project-content">
+
+              <div class="project-meta">
+                <span>Avr.–mai 2025</span>
+                <span>Master</span>
+              </div>
+
+              <h3>
                 Simulation de vagues infinies en 2D
               </h3>
-<p>
+
+              <p>
                 Résolution numérique de l’équation des ondes en 2D avec conditions
                 périodiques pour simuler une propagation continue en pleine mer.
               </p>
-<div class="tags">
-<span>Python</span>
-<span>Équation des ondes</span>
-<span>Différences finies</span>
-</div>
-<div class="project-actions">
-<button class="text-button" data-project="waves" type="button">
+
+              <div class="tags">
+                <span>Python</span>
+                <span>Équation des ondes</span>
+                <span>Différences finies</span>
+              </div>
+
+              <div class="project-actions">
+<button
+                  class="text-button"
+                  type="button"
+                  data-project="waves"
+                >
                   En savoir plus
                 </button>
-</div>
-</div>
-</article><article class="project-card">
-<div class="project-visual naca">
-<span>CFD · MACH 0,82</span>
-</div>
-<div class="project-content">
-<div class="project-meta">
-<span>Avr.–mai 2025</span>
-<span>Master</span>
-</div>
-<h3>
+              </div>
+
+            </div>
+          </article>
+
+
+          <!-- Projet 5 -->
+          <article class="project-card">
+
+            <div class="project-visual naca">
+              <span>CFD · MACH 0,82</span>
+            </div>
+
+            <div class="project-content">
+
+              <div class="project-meta">
+                <span>Avr.–mai 2025</span>
+                <span>Master</span>
+              </div>
+
+              <h3>
                 Écoulement autour d’un profil NACA0012
               </h3>
-<p>
+
+              <p>
                 Validation CFD en régime transsonique avec comparaison aux mesures
                 expérimentales et analyse des ondes de choc.
               </p>
-<div class="tags">
-<span>CFD</span>
-<span>ParaView</span>
-<span>Aérodynamique</span>
-</div>
-<div class="project-actions">
-<button class="text-button" data-project="naca" type="button">
+
+              <div class="tags">
+                <span>CFD</span>
+                <span>ParaView</span>
+                <span>Aérodynamique</span>
+              </div>
+
+              <div class="project-actions">
+<button
+                  class="text-button"
+                  type="button"
+                  data-project="naca"
+                >
                   En savoir plus
                 </button>
-</div>
-</div>
-</article><article class="project-card">
-<div class="project-visual bemt">
-<span>ÉOLIENNES · BEMT</span>
-</div>
-<div class="project-content">
-<div class="project-meta">
-<span>Avr.–mai 2025</span>
-<span>Master</span>
-</div>
-<h3>
+              </div>
+
+            </div>
+          </article>
+
+
+          <!-- Projet 6 -->
+          <article class="project-card">
+
+            <div class="project-visual bemt">
+              <span>ÉOLIENNES · BEMT</span>
+            </div>
+
+            <div class="project-content">
+
+              <div class="project-meta">
+                <span>Avr.–mai 2025</span>
+                <span>Master</span>
+              </div>
+
+              <h3>
                 Analyse BEMT d’éoliennes HAWT
               </h3>
-<p>
+
+              <p>
                 Étude comparative, validation et optimisation des performances
                 aérodynamiques de plusieurs rotors HAWT.
               </p>
-<div class="tags">
-<span>BEMT</span>
-<span>Optimisation</span>
-<span>Aérodynamique</span>
-</div>
-<div class="project-actions">
-<button class="text-button" data-project="bemt" type="button">
+
+              <div class="tags">
+                <span>BEMT</span>
+                <span>Optimisation</span>
+                <span>Aérodynamique</span>
+              </div>
+
+              <div class="project-actions">
+<button
+                  class="text-button"
+                  type="button"
+                  data-project="bemt"
+                >
                   En savoir plus
                 </button>
-</div>
-</div>
-</article><article class="project-card">
-<div class="project-visual robot">
-<span>CAO · ROBOTIQUE</span>
-</div>
-<div class="project-content">
-<div class="project-meta">
-<span>Nov. 2023–janv. 2024</span>
-<span>Licence</span>
-</div>
-<h3>
+              </div>
+
+            </div>
+          </article>
+
+
+          <!-- Projet 7 -->
+          <article class="project-card">
+
+            <div class="project-visual robot">
+              <span>CAO · ROBOTIQUE</span>
+            </div>
+
+            <div class="project-content">
+
+              <div class="project-meta">
+                <span>Nov. 2023–janv. 2024</span>
+                <span>Licence</span>
+              </div>
+
+              <h3>
                 Robot humanoïde marcheur
               </h3>
-<p>
+
+              <p>
                 Conception CAO d’un humanoïde et validation de sa démarche
                 à travers des simulations de mouvement.
               </p>
-<div class="tags">
-<span>SolidWorks</span>
-<span>CAO</span>
-<span>Simulation</span>
-</div>
-<div class="project-actions">
-<button class="text-button" data-project="robot" type="button">
+
+              <div class="tags">
+                <span>SolidWorks</span>
+                <span>CAO</span>
+                <span>Simulation</span>
+              </div>
+
+              <div class="project-actions">
+<button
+                  class="text-button"
+                  type="button"
+                  data-project="robot"
+                >
                   En savoir plus
                 </button>
-</div>
-</div>
-</article></div>
-</div>
-</section>
-<!-- =========================================================
+              </div>
+
+            </div>
+          </article>
+
+
+
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
          COMPÉTENCES
          ========================================================= -->
-<section class="section section-muted" id="competences">
-<div class="container">
-<p class="section-kicker">Compétences</p>
-<h2 class="section-title">
+    <section class="section section-muted" id="competences">
+      <div class="container">
+
+        <p class="section-kicker">Compétences</p>
+
+        <h2 class="section-title">
           Ce que mes projets mettent en pratique.
         </h2>
-<div class="skills-grid">
-<div class="skill-card">
-<span class="skill-number">01</span>
-<h3>Simulation numérique</h3>
-<p>
+
+
+        <div class="skills-grid">
+
+          <div class="skill-card">
+            <span class="skill-number">01</span>
+
+            <h3>Simulation numérique</h3>
+
+            <p>
               Différences finies, discrétisation, équations aux dérivées
               partielles et méthodes itératives.
             </p>
-</div>
-<div class="skill-card">
-<span class="skill-number">02</span>
-<h3>Aérodynamique &amp; fluides</h3>
-<p>
+          </div>
+
+
+          <div class="skill-card">
+            <span class="skill-number">02</span>
+
+            <h3>Aérodynamique &amp; fluides</h3>
+
+            <p>
               CFD, BEMT, profils aérodynamiques, écoulements transsoniques
               et ondes de choc.
             </p>
-</div>
-<div class="skill-card">
-<span class="skill-number">03</span>
-<h3>Programmation scientifique</h3>
-<p>
+          </div>
+
+
+          <div class="skill-card">
+            <span class="skill-number">03</span>
+
+            <h3>Programmation scientifique</h3>
+
+            <p>
               Python, Fortran, modélisation physique, traitement et
               interprétation des résultats.
             </p>
-</div>
-<div class="skill-card">
-<span class="skill-number">04</span>
-<h3>Outils d’ingénierie</h3>
-<p>
+          </div>
+
+
+          <div class="skill-card">
+            <span class="skill-number">04</span>
+
+            <h3>Outils d’ingénierie</h3>
+
+            <p>
               ParaView, SolidWorks, CAO, PyCharm, Spyder et outils de
               visualisation scientifique.
             </p>
-</div>
-</div>
-</div>
-</section>
-<!-- =========================================================
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================================================
          CONTACT
          ========================================================= -->
-<section class="section section-contact" id="contact">
-<div class="container contact-card">
-<div>
-<p class="section-kicker">Contact</p>
-<h2>
+    <section class="section section-contact" id="contact">
+      <div class="container contact-card">
+
+        <div>
+          <p class="section-kicker">Contact</p>
+
+          <h2>
             Intéressé par mon profil ?
           </h2>
-<p>
+
+          <p>
             Je recherche un stage de fin d’études de 6 mois en simulation numérique, aérodynamique ou mécanique des fluides, dans les secteurs aéronautique ou énergétique.
 
           </p>
-</div>
-<div class="contact-actions">
-<a class="btn btn-primary" href="mailto:Sebastien.Du@etu.sorbonne-universite.fr">
+        </div>
+
+
+        <div class="contact-actions">
+
+          <a
+            class="btn btn-primary"
+            href="mailto:Sebastien.Du@etu.sorbonne-universite.fr"
+          >
             Me contacter
           </a>
-<a class="btn btn-secondary" href="https://www.linkedin.com/in/sebastiendu/" rel="noopener" target="_blank">
+
+          <a
+            class="btn btn-secondary"
+            href="https://www.linkedin.com/in/sebastiendu/"
+            target="_blank"
+            rel="noopener"
+          >
             LinkedIn
           </a>
-</div>
-</div>
-</section>
-</main>
-<!-- =========================================================
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =========================================================
        FOOTER
        ========================================================= -->
-<footer>
-<div class="container footer-content">
-<p>
+  <footer>
+    <div class="container footer-content">
+
+      <p>
         © <span id="year"></span> Sébastien Du
       </p>
-<a href="#accueil">
+
+      <a href="#accueil">
         Retour en haut ↑
       </a>
-</div>
-</footer>
-<!-- =========================================================
+
+    </div>
+  </footer>
+
+
+  <!-- =========================================================
        MODALE PROJET
        ========================================================= -->
-<div aria-hidden="true" class="modal" id="projectModal">
-<div class="modal-backdrop" data-close-modal=""></div>
-<div aria-labelledby="modalTitle" aria-modal="true" class="modal-dialog modal-project-dialog" role="dialog">
-<button aria-label="Fermer" class="modal-close" data-close-modal="" type="button">
+  <div
+    class="modal"
+    id="projectModal"
+    aria-hidden="true"
+  >
+
+    <div
+      class="modal-backdrop"
+      data-close-modal
+    ></div>
+
+    <div
+      class="modal-dialog modal-project-dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+    >
+
+      <button
+        class="modal-close"
+        type="button"
+        aria-label="Fermer"
+        data-close-modal
+      >
         ×
       </button>
-<p class="section-kicker">
+
+      <p class="section-kicker">
         Détail du projet
       </p>
-<h2 id="modalTitle">
+
+      <h2 id="modalTitle">
         Projet
       </h2>
-<p class="project-modal-meta" hidden="" id="modalProjectMeta"></p>
-<div class="project-modal-gallery" hidden="" id="modalGallery"></div>
-<div class="project-modal-description">
-<h3>Présentation</h3>
-<p id="modalText"></p>
-</div>
-<div class="project-modal-highlights" hidden="" id="modalHighlights">
-<h3>Points clés</h3>
-<ul id="modalHighlightsList"></ul>
-</div>
-<div class="project-modal-skills-block">
-<h3>Compétences &amp; outils</h3>
-<div class="modal-skills" id="modalSkills"></div>
-</div>
-<section class="private-documents" id="privateDocuments">
-<div class="private-documents-heading">
-<div aria-hidden="true" class="private-lock-icon">
-<svg viewbox="0 0 24 24">
-<rect height="11" rx="2" width="14" x="5" y="10"></rect>
-<path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
-</svg>
-</div>
-<div>
-<p class="private-eyebrow">Espace recruteur</p>
-<h3>Documents complets</h3>
-<p>
+
+      <p
+        class="project-modal-meta"
+        id="modalProjectMeta"
+        hidden
+      ></p>
+
+      <div
+        class="project-modal-gallery"
+        id="modalGallery"
+        hidden
+      ></div>
+
+      <div class="project-modal-description">
+        <h3>Présentation</h3>
+        <p id="modalText"></p>
+      </div>
+
+      <div
+        class="project-modal-highlights"
+        id="modalHighlights"
+        hidden
+      >
+        <h3>Points clés</h3>
+        <ul id="modalHighlightsList"></ul>
+      </div>
+
+      <div class="project-modal-skills-block">
+        <h3>Compétences &amp; outils</h3>
+
+        <div
+          id="modalSkills"
+          class="modal-skills"
+        ></div>
+      </div>
+
+      <section
+        class="private-documents"
+        id="privateDocuments"
+      >
+        <div class="private-documents-heading">
+          <div class="private-lock-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <rect x="5" y="10" width="14" height="11" rx="2"></rect>
+              <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+            </svg>
+          </div>
+
+          <div>
+            <p class="private-eyebrow">Espace recruteur</p>
+            <h3>Documents complets</h3>
+            <p>
               Rapports, présentations et documents complémentaires sécurisés.
             </p>
-</div>
-</div>
-<div id="privateLockedPanel">
-<form class="private-access-form" id="privateAccessForm">
-<label for="privatePassword">
+          </div>
+        </div>
+
+        <div id="privateLockedPanel">
+          <form
+            class="private-access-form"
+            id="privateAccessForm"
+          >
+            <label for="privatePassword">
               Mot de passe recruteur
             </label>
-<div class="private-access-row">
-<input autocomplete="current-password" id="privatePassword" name="password" placeholder="••••••••••••" required="" type="password"/>
-<button class="btn btn-primary" id="privateLoginButton" type="submit">
+
+            <div class="private-access-row">
+              <input
+                id="privatePassword"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                placeholder="••••••••••••"
+                required
+              >
+
+              <button
+                class="btn btn-primary"
+                id="privateLoginButton"
+                type="submit"
+              >
                 Déverrouiller
               </button>
-</div>
-<p aria-live="polite" class="private-access-message" id="privateAccessMessage">
+            </div>
+
+            <p
+              class="private-access-message"
+              id="privateAccessMessage"
+              aria-live="polite"
+            >
               Une seule connexion donne accès aux documents pendant 2 heures.
             </p>
-</form>
-</div>
-<div class="private-unlocked" hidden="" id="privateUnlockedPanel">
-<div class="private-session-bar">
-<div>
-<span aria-hidden="true" class="private-session-dot"></span>
-<strong>Accès recruteur déverrouillé</strong>
-<span class="private-session-text">· session valable jusqu’à 2 h</span>
-</div>
-<button class="private-logout" id="privateLogoutButton" type="button">
+          </form>
+        </div>
+
+        <div
+          class="private-unlocked"
+          id="privateUnlockedPanel"
+          hidden
+        >
+          <div class="private-session-bar">
+            <div>
+              <span class="private-session-dot" aria-hidden="true"></span>
+              <strong>Accès recruteur déverrouillé</strong>
+              <span class="private-session-text">· session valable jusqu’à 2 h</span>
+            </div>
+
+            <button
+              class="private-logout"
+              id="privateLogoutButton"
+              type="button"
+            >
               Se déconnecter
             </button>
-</div>
-<div class="private-project-documents">
-<p class="private-documents-label">Documents de ce projet</p>
-<div class="private-documents-list" id="privateDocumentsList"></div>
-<p class="private-empty-message" hidden="" id="privateEmptyMessage">
+          </div>
+
+          <div class="private-project-documents">
+            <p class="private-documents-label">Documents de ce projet</p>
+
+            <div
+              class="private-documents-list"
+              id="privateDocumentsList"
+            ></div>
+
+            <p
+              class="private-empty-message"
+              id="privateEmptyMessage"
+              hidden
+            >
               Aucun document n’est encore disponible pour ce projet.
             </p>
-</div>
-<div class="private-pdf-viewer" hidden="" id="privatePdfViewer">
-<div class="private-pdf-toolbar">
-<strong id="privatePdfTitle">Document</strong>
-<div class="private-pdf-actions">
-<button class="text-button" id="privatePdfOpenButton" type="button">
+          </div>
+
+          <div
+            class="private-pdf-viewer"
+            id="privatePdfViewer"
+            hidden
+          >
+            <div class="private-pdf-toolbar">
+              <strong id="privatePdfTitle">Document</strong>
+
+              <div class="private-pdf-actions">
+                <button
+                  class="text-button"
+                  id="privatePdfOpenButton"
+                  type="button"
+                >
                   Ouvrir dans un nouvel onglet
                 </button>
-<button class="text-button" id="privatePdfCloseButton" type="button">
+
+                <button
+                  class="text-button"
+                  id="privatePdfCloseButton"
+                  type="button"
+                >
                   Fermer le document
                 </button>
-</div>
-</div>
-<div class="private-pdf-frame-wrap">
-<iframe id="privatePdfFrame" title="Lecteur de document"></iframe>
-</div>
-</div>
-</div>
-</section>
-</div>
-</div>
-<!-- =========================================================
+              </div>
+            </div>
+
+            <div class="private-pdf-frame-wrap">
+              <iframe
+                id="privatePdfFrame"
+                title="Lecteur de document"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+
+  <!-- =========================================================
        MODALE EXPÉRIENCE — STAGE CNRS / FAST
        ========================================================= -->
-<div aria-hidden="true" class="modal" id="experienceModal">
-<div class="modal-backdrop" data-close-experience=""></div>
-<div aria-labelledby="experienceModalTitle" aria-modal="true" class="modal-dialog experience-modal-dialog" role="dialog">
-<button aria-label="Fermer" class="modal-close" data-close-experience="" type="button">
+  <div
+    class="modal"
+    id="experienceModal"
+    aria-hidden="true"
+  >
+
+    <div
+      class="modal-backdrop"
+      data-close-experience
+    ></div>
+
+    <div
+      class="modal-dialog experience-modal-dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="experienceModalTitle"
+    >
+
+      <button
+        class="modal-close"
+        type="button"
+        aria-label="Fermer"
+        data-close-experience
+      >
         ×
       </button>
-<p class="section-kicker">
+
+      <p class="section-kicker">
         Expérience professionnelle
       </p>
-<h2 id="experienceModalTitle">
+
+      <h2 id="experienceModalTitle">
         Stage M1 — CNRS / Laboratoire FAST
       </h2>
-<p id="experienceModalText"></p>
-<div class="modal-skills" id="experienceModalSkills"></div>
-<figure class="experience-poster" hidden="" id="experienceModalPoster">
-<img alt="" id="experienceModalPosterImage" loading="lazy" src=""/>
-<figcaption id="experienceModalPosterCaption"></figcaption>
-</figure>
-<div class="modal-note">
+
+      <p id="experienceModalText"></p>
+
+      <div
+        id="experienceModalSkills"
+        class="modal-skills"
+      ></div>
+
+      <figure
+        id="experienceModalPoster"
+        class="experience-poster"
+        hidden
+      >
+        <img
+          id="experienceModalPosterImage"
+          src=""
+          alt=""
+          loading="lazy"
+        >
+        <figcaption id="experienceModalPosterCaption"></figcaption>
+      </figure>
+
+      <div class="modal-note">
         Stage de recherche réalisé au laboratoire FAST du CNRS à Orsay,
         encadré par Georg Dietze et Sophie Mergui. Le poster est le seul
         document de stage affiché publiquement sur le portfolio.
       </div>
-</div>
-</div>
-<script src="script.js"></script>
+
+    </div>
+  </div>
+
+
+  <script src="script.js"></script>
+
 </body>
 </html>
