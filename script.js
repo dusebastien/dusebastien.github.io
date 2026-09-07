@@ -554,6 +554,9 @@ const privatePdfFrame = document.getElementById("privatePdfFrame");
 const privatePdfTitle = document.getElementById("privatePdfTitle");
 const privatePdfCloseButton = document.getElementById("privatePdfCloseButton");
 const privatePdfOpenButton = document.getElementById("privatePdfOpenButton");
+const privateDocuments = document.getElementById("privateDocuments");
+const projectPrivateDocumentsHost = document.getElementById("projectPrivateDocumentsHost");
+const experiencePrivateDocumentsHost = document.getElementById("experiencePrivateDocumentsHost");
 
 const DOCUMENTS_API = "https://portfolio-documents-api.seblasteu.workers.dev";
 const DOCUMENTS_TOKEN_KEY = "sebastien-portfolio-docs-token";
@@ -561,6 +564,12 @@ const DOCUMENTS_TOKEN_KEY = "sebastien-portfolio-docs-token";
 let currentProject = null;
 let currentPdfObjectUrl = null;
 let documentsCache = null;
+
+function mountPrivateDocuments(host) {
+  if (privateDocuments && host && privateDocuments.parentElement !== host) {
+    host.appendChild(privateDocuments);
+  }
+}
 
 
 function openModal(project) {
@@ -686,6 +695,7 @@ function openModal(project) {
   }
 
   currentProject = project;
+  mountPrivateDocuments(projectPrivateDocumentsHost);
   closePdfViewer();
 
   if (privatePassword) {
@@ -1117,6 +1127,7 @@ privatePdfOpenButton?.addEventListener("click", () => {
 
 const experienceData = {
   cnrs: {
+    documentFolder: "Stage FAST",
     title: "Stage M1 — CNRS / Laboratoire FAST",
     text:
       "Stage de recherche réalisé de juin à août 2026 au laboratoire FAST " +
@@ -1125,6 +1136,8 @@ const experienceData = {
       "puis en trois dimensions, d’un film liquide tombant sur un substrat corrugué. " +
       "Ce stage m’a permis de travailler sur la simulation numérique appliquée " +
       "à la mécanique des fluides et sur l’analyse de résultats de simulation.",
+    poster: "assets/stage-fast-poster.png",
+    posterAlt: "Poster du stage M1 au laboratoire FAST du CNRS",
     skills: [
       "Simulation numérique",
       "Mécanique des fluides",
@@ -1141,6 +1154,9 @@ const experienceModal = document.getElementById("experienceModal");
 const experienceModalTitle = document.getElementById("experienceModalTitle");
 const experienceModalText = document.getElementById("experienceModalText");
 const experienceModalSkills = document.getElementById("experienceModalSkills");
+const experienceModalPoster = document.getElementById("experienceModalPoster");
+const experienceModalPosterImage = document.getElementById("experienceModalPosterImage");
+const experienceModalPosterLink = document.getElementById("experienceModalPosterLink");
 
 function openExperienceModal(experience) {
   if (
@@ -1156,11 +1172,35 @@ function openExperienceModal(experience) {
   experienceModalText.textContent = experience.text;
   experienceModalSkills.replaceChildren();
 
+  if (
+    experience.poster &&
+    experienceModalPoster &&
+    experienceModalPosterImage &&
+    experienceModalPosterLink
+  ) {
+    experienceModalPosterImage.src = experience.poster;
+    experienceModalPosterImage.alt = experience.posterAlt || experience.title;
+    experienceModalPosterLink.href = experience.poster;
+    experienceModalPoster.hidden = false;
+  } else if (experienceModalPoster) {
+    experienceModalPoster.hidden = true;
+  }
+
   experience.skills.forEach(skill => {
     const chip = document.createElement("span");
     chip.textContent = skill;
     experienceModalSkills.appendChild(chip);
   });
+
+  currentProject = experience;
+  mountPrivateDocuments(experiencePrivateDocumentsHost);
+  closePdfViewer();
+
+  if (privatePassword) {
+    privatePassword.value = "";
+  }
+
+  refreshPrivateAccessForProject();
 
   experienceModal.classList.add("is-open");
   experienceModal.setAttribute("aria-hidden", "false");
@@ -1172,6 +1212,7 @@ function openExperienceModal(experience) {
 function closeExperienceModal() {
   if (!experienceModal) return;
 
+  closePdfViewer();
   experienceModal.classList.remove("is-open");
   experienceModal.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";

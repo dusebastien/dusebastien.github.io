@@ -1419,6 +1419,13 @@ footer {
   color: var(--muted);
 }
 
+#experienceModal .modal-dialog {
+  width: min(900px, calc(100% - 32px));
+  max-height: 88vh;
+  margin: 6vh auto;
+  overflow-y: auto;
+}
+
 .modal-close {
   position: absolute;
 
@@ -1471,6 +1478,45 @@ footer {
 
   font-size: 0.75rem;
   font-weight: 650;
+}
+
+
+/* Poster du stage affiché dans la modale d’expérience */
+.experience-poster {
+  margin: 24px 0;
+}
+
+.experience-poster[hidden] {
+  display: none;
+}
+
+.experience-poster a {
+  display: block;
+
+  border: 1px solid var(--line);
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  background: #ffffff;
+}
+
+.experience-poster img {
+  width: 100%;
+  max-height: 62vh;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+.experience-poster p {
+  margin: 9px 0 0;
+
+  color: var(--muted);
+
+  font-size: 0.76rem;
+  text-align: center;
 }
 
 
