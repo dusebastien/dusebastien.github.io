@@ -1117,6 +1117,7 @@ privatePdfOpenButton?.addEventListener("click", () => {
 
 const experienceData = {
   cnrs: {
+    documentFolder: "Stage FAST",
     title: "Stage M1 — CNRS / Laboratoire FAST",
     text:
       "Stage de recherche réalisé de juin à août 2026 au laboratoire FAST " +
@@ -1141,6 +1142,24 @@ const experienceModalTitle = document.getElementById("experienceModalTitle");
 const experienceModalText = document.getElementById("experienceModalText");
 const experienceModalSkills = document.getElementById("experienceModalSkills");
 
+const stagePrivateAccessForm = document.getElementById("stagePrivateAccessForm");
+const stagePrivatePassword = document.getElementById("stagePrivatePassword");
+const stagePrivateAccessMessage = document.getElementById("stagePrivateAccessMessage");
+const stagePrivateLockedPanel = document.getElementById("stagePrivateLockedPanel");
+const stagePrivateUnlockedPanel = document.getElementById("stagePrivateUnlockedPanel");
+const stagePrivateLoginButton = document.getElementById("stagePrivateLoginButton");
+const stagePrivateLogoutButton = document.getElementById("stagePrivateLogoutButton");
+const stagePrivateDocumentsList = document.getElementById("stagePrivateDocumentsList");
+const stagePrivateEmptyMessage = document.getElementById("stagePrivateEmptyMessage");
+const stagePrivatePdfViewer = document.getElementById("stagePrivatePdfViewer");
+const stagePrivatePdfFrame = document.getElementById("stagePrivatePdfFrame");
+const stagePrivatePdfTitle = document.getElementById("stagePrivatePdfTitle");
+const stagePrivatePdfCloseButton = document.getElementById("stagePrivatePdfCloseButton");
+const stagePrivatePdfOpenButton = document.getElementById("stagePrivatePdfOpenButton");
+
+let currentExperience = null;
+let stagePdfObjectUrl = null;
+
 function openExperienceModal(experience) {
   if (
     !experienceModal ||
@@ -1161,6 +1180,15 @@ function openExperienceModal(experience) {
     experienceModalSkills.appendChild(chip);
   });
 
+  currentExperience = experience;
+  closeStagePdfViewer();
+
+  if (stagePrivatePassword) {
+    stagePrivatePassword.value = "";
+  }
+
+  refreshStagePrivateAccessForExperience();
+
   experienceModal.classList.add("is-open");
   experienceModal.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
@@ -1171,10 +1199,291 @@ function openExperienceModal(experience) {
 function closeExperienceModal() {
   if (!experienceModal) return;
 
+  closeStagePdfViewer();
   experienceModal.classList.remove("is-open");
   experienceModal.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";
 }
+
+
+// =========================================================
+// DOCUMENTS PRIVÉS — STAGE FAST
+// =========================================================
+
+function setStageAccessMessage(message, type = "") {
+  if (!stagePrivateAccessMessage) return;
+
+  stagePrivateAccessMessage.textContent = message;
+  stagePrivateAccessMessage.classList.remove("is-warning", "is-success");
+
+  if (type) {
+    stagePrivateAccessMessage.classList.add(type);
+  }
+}
+
+function setStagePrivateLoading(loading) {
+  if (!stagePrivateLoginButton || !stagePrivatePassword) return;
+
+  stagePrivateLoginButton.disabled = loading;
+  stagePrivatePassword.disabled = loading;
+  stagePrivateLoginButton.textContent = loading ? "Connexion…" : "Déverrouiller";
+}
+
+function showStageLockedPanel() {
+  if (stagePrivateLockedPanel) stagePrivateLockedPanel.hidden = false;
+  if (stagePrivateUnlockedPanel) stagePrivateUnlockedPanel.hidden = true;
+
+  closeStagePdfViewer();
+}
+
+function showStageUnlockedPanel() {
+  if (stagePrivateLockedPanel) stagePrivateLockedPanel.hidden = true;
+  if (stagePrivateUnlockedPanel) stagePrivateUnlockedPanel.hidden = false;
+}
+
+async function refreshStagePrivateAccessForExperience() {
+  if (!stagePrivateLockedPanel || !stagePrivateUnlockedPanel) return;
+
+  if (!getDocumentsToken()) {
+    showStageLockedPanel();
+    setStageAccessMessage(
+      "Une seule connexion donne accès aux documents pendant 2 heures."
+    );
+    return;
+  }
+
+  const valid = await validateSession();
+
+  if (!valid) {
+    showStageLockedPanel();
+    setStageAccessMessage(
+      "La session a expiré. Saisis de nouveau le mot de passe.",
+      "is-warning"
+    );
+    return;
+  }
+
+  showStageUnlockedPanel();
+  await renderStageDocuments();
+}
+
+async function renderStageDocuments() {
+  if (!stagePrivateDocumentsList || !stagePrivateEmptyMessage || !currentExperience) {
+    return;
+  }
+
+  stagePrivateDocumentsList.replaceChildren();
+  stagePrivateEmptyMessage.hidden = true;
+
+  const loading = document.createElement("p");
+  loading.className = "private-documents-loading";
+  loading.textContent = "Chargement des documents…";
+  stagePrivateDocumentsList.appendChild(loading);
+
+  try {
+    const documents = await loadDocuments();
+    const folder = currentExperience.documentFolder;
+
+    const stageDocuments = folder
+      ? documents.filter(document => document.key.startsWith(`${folder}/`))
+      : [];
+
+    stagePrivateDocumentsList.replaceChildren();
+
+    if (!stageDocuments.length) {
+      stagePrivateEmptyMessage.hidden = false;
+      return;
+    }
+
+    stageDocuments.forEach(file => {
+      const button = document.createElement("button");
+      button.className = "private-document-card";
+      button.type = "button";
+
+      const icon = document.createElement("span");
+      icon.className = "private-document-icon";
+      icon.setAttribute("aria-hidden", "true");
+      icon.textContent = getFileExtension(file.key);
+
+      const info = document.createElement("span");
+      info.className = "private-document-info";
+
+      const title = document.createElement("strong");
+      title.textContent = prettifyFileName(file.key);
+
+      const meta = document.createElement("span");
+      const size = formatFileSize(file.size);
+      meta.textContent = size
+        ? `${getFileExtension(file.key)} · ${size}`
+        : getFileExtension(file.key);
+
+      info.append(title, meta);
+
+      const arrow = document.createElement("span");
+      arrow.className = "private-document-arrow";
+      arrow.setAttribute("aria-hidden", "true");
+      arrow.textContent = "↗";
+
+      button.append(icon, info, arrow);
+
+      button.addEventListener("click", () => {
+        openStagePrivateDocument(file);
+      });
+
+      stagePrivateDocumentsList.appendChild(button);
+    });
+  } catch (error) {
+    stagePrivateDocumentsList.replaceChildren();
+
+    if (error.message === "SESSION_EXPIRED") {
+      showStageLockedPanel();
+      setStageAccessMessage(
+        "La session a expiré. Saisis de nouveau le mot de passe.",
+        "is-warning"
+      );
+      return;
+    }
+
+    const message = document.createElement("p");
+    message.className = "private-empty-message";
+    message.textContent = "Impossible de charger les documents pour le moment.";
+    stagePrivateDocumentsList.appendChild(message);
+  }
+}
+
+async function openStagePrivateDocument(document) {
+  if (!stagePrivatePdfViewer || !stagePrivatePdfFrame || !stagePrivatePdfTitle) return;
+
+  closeStagePdfViewer(false);
+
+  stagePrivatePdfViewer.hidden = false;
+  stagePrivatePdfTitle.textContent = "Chargement du document…";
+  stagePrivatePdfFrame.removeAttribute("src");
+
+  try {
+    const response = await apiRequest(
+      `/api/file/${encodeURIComponent(document.key)}`,
+      { method: "GET" }
+    );
+
+    if (response.status === 401) {
+      setDocumentsToken("");
+      documentsCache = null;
+      showStageLockedPanel();
+      setStageAccessMessage(
+        "La session a expiré. Saisis de nouveau le mot de passe.",
+        "is-warning"
+      );
+      return;
+    }
+
+    if (!response.ok) {
+      throw new Error("FILE_ERROR");
+    }
+
+    const blob = await response.blob();
+    stagePdfObjectUrl = URL.createObjectURL(blob);
+
+    stagePrivatePdfTitle.textContent = prettifyFileName(document.key);
+    stagePrivatePdfFrame.src = stagePdfObjectUrl;
+
+    stagePrivatePdfViewer.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  } catch (error) {
+    stagePrivatePdfTitle.textContent = "Document indisponible";
+    stagePrivatePdfFrame.removeAttribute("src");
+  }
+}
+
+function closeStagePdfViewer(hide = true) {
+  if (stagePdfObjectUrl) {
+    URL.revokeObjectURL(stagePdfObjectUrl);
+    stagePdfObjectUrl = null;
+  }
+
+  if (stagePrivatePdfFrame) {
+    stagePrivatePdfFrame.removeAttribute("src");
+  }
+
+  if (stagePrivatePdfViewer && hide) {
+    stagePrivatePdfViewer.hidden = true;
+  }
+}
+
+stagePrivateAccessForm?.addEventListener("submit", async event => {
+  event.preventDefault();
+
+  const password = stagePrivatePassword?.value || "";
+
+  if (!password.trim()) {
+    setStageAccessMessage("Saisis le mot de passe recruteur.", "is-warning");
+    stagePrivatePassword?.focus();
+    return;
+  }
+
+  setStagePrivateLoading(true);
+  setStageAccessMessage("Vérification du mot de passe…");
+
+  try {
+    const response = await fetch(`${DOCUMENTS_API}/api/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ password }),
+    });
+
+    const data = await response.json().catch(() => ({}));
+
+    if (!response.ok || !data.token) {
+      setStageAccessMessage(
+        data.message || "Mot de passe incorrect.",
+        "is-warning"
+      );
+      stagePrivatePassword?.select();
+      return;
+    }
+
+    setDocumentsToken(data.token);
+    documentsCache = null;
+
+    if (stagePrivatePassword) {
+      stagePrivatePassword.value = "";
+    }
+
+    showStageUnlockedPanel();
+    await renderStageDocuments();
+  } catch (error) {
+    setStageAccessMessage(
+      "Impossible de joindre l’espace sécurisé. Réessaie dans un instant.",
+      "is-warning"
+    );
+  } finally {
+    setStagePrivateLoading(false);
+  }
+});
+
+stagePrivateLogoutButton?.addEventListener("click", () => {
+  setDocumentsToken("");
+  documentsCache = null;
+  showStageLockedPanel();
+
+  setStageAccessMessage(
+    "Session fermée. Saisis le mot de passe pour accéder aux documents."
+  );
+});
+
+stagePrivatePdfCloseButton?.addEventListener("click", () => {
+  closeStagePdfViewer();
+});
+
+stagePrivatePdfOpenButton?.addEventListener("click", () => {
+  if (stagePdfObjectUrl) {
+    window.open(stagePdfObjectUrl, "_blank", "noopener,noreferrer");
+  }
+});
 
 /* Bouton "En savoir plus" */
 document.querySelectorAll("[data-experience]").forEach(button => {

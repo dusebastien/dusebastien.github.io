@@ -1153,7 +1153,7 @@
     ></div>
 
     <div
-      class="modal-dialog"
+      class="modal-dialog modal-experience-dialog"
       role="dialog"
       aria-modal="true"
       aria-labelledby="experienceModalTitle"
@@ -1183,10 +1183,176 @@
         class="modal-skills"
       ></div>
 
+      <section class="experience-poster" aria-labelledby="experiencePosterTitle">
+        <div class="experience-poster-heading">
+          <h3 id="experiencePosterTitle">Poster du stage</h3>
+          <a
+            class="text-button experience-poster-open"
+            href="assets/projets/stage-fast-poster.png"
+            target="_blank"
+            rel="noopener"
+          >
+            Agrandir le poster ↗
+          </a>
+        </div>
+
+        <figure class="experience-poster-figure">
+          <a
+            href="assets/projets/stage-fast-poster.png"
+            target="_blank"
+            rel="noopener"
+            aria-label="Ouvrir le poster du stage en grand"
+          >
+            <img
+              src="assets/projets/stage-fast-poster.png"
+              alt="Poster du stage FAST sur l’étude numérique 2D et 3D d’un film liquide tombant sur un substrat corrugué"
+              loading="lazy"
+            >
+          </a>
+          <figcaption>
+            Étude numérique bidimensionnelle et tridimensionnelle d’un film liquide tombant sur un substrat corrugué.
+          </figcaption>
+        </figure>
+      </section>
+
       <div class="modal-note">
         Stage de recherche réalisé au laboratoire FAST du CNRS à Orsay,
         encadré par Georg Dietze et Sophie Mergui.
       </div>
+
+      <section
+        class="private-documents"
+        id="stagePrivateDocuments"
+      >
+        <div class="private-documents-heading">
+          <div class="private-lock-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <rect x="5" y="10" width="14" height="11" rx="2"></rect>
+              <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+            </svg>
+          </div>
+
+          <div>
+            <p class="private-eyebrow">Espace recruteur</p>
+            <h3>Documents complets du stage</h3>
+            <p>
+              Les documents sont chargés depuis le dossier sécurisé « Stage FAST ».
+            </p>
+          </div>
+        </div>
+
+        <div id="stagePrivateLockedPanel">
+          <form
+            class="private-access-form"
+            id="stagePrivateAccessForm"
+          >
+            <label for="stagePrivatePassword">
+              Mot de passe recruteur
+            </label>
+
+            <div class="private-access-row">
+              <input
+                id="stagePrivatePassword"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                placeholder="••••••••••••"
+                required
+              >
+
+              <button
+                class="btn btn-primary"
+                id="stagePrivateLoginButton"
+                type="submit"
+              >
+                Déverrouiller
+              </button>
+            </div>
+
+            <p
+              class="private-access-message"
+              id="stagePrivateAccessMessage"
+              aria-live="polite"
+            >
+              Une seule connexion donne accès aux documents pendant 2 heures.
+            </p>
+          </form>
+        </div>
+
+        <div
+          class="private-unlocked"
+          id="stagePrivateUnlockedPanel"
+          hidden
+        >
+          <div class="private-session-bar">
+            <div>
+              <span class="private-session-dot" aria-hidden="true"></span>
+              <strong>Accès recruteur déverrouillé</strong>
+              <span class="private-session-text">· session valable jusqu’à 2 h</span>
+            </div>
+
+            <button
+              class="private-logout"
+              id="stagePrivateLogoutButton"
+              type="button"
+            >
+              Se déconnecter
+            </button>
+          </div>
+
+          <div class="private-project-documents">
+            <p class="private-documents-label">Documents du stage FAST</p>
+
+            <div
+              class="private-documents-list"
+              id="stagePrivateDocumentsList"
+            ></div>
+
+            <p
+              class="private-empty-message"
+              id="stagePrivateEmptyMessage"
+              hidden
+            >
+              Aucun document n’est encore disponible dans le dossier Stage FAST.
+            </p>
+          </div>
+
+          <div
+            class="private-pdf-viewer"
+            id="stagePrivatePdfViewer"
+            hidden
+          >
+            <div class="private-pdf-toolbar">
+              <strong id="stagePrivatePdfTitle">Document</strong>
+
+              <div class="private-pdf-actions">
+                <button
+                  class="text-button"
+                  id="stagePrivatePdfOpenButton"
+                  type="button"
+                >
+                  Ouvrir dans un nouvel onglet
+                </button>
+
+                <button
+                  class="text-button"
+                  id="stagePrivatePdfCloseButton"
+                  type="button"
+                >
+                  Fermer le document
+                </button>
+              </div>
+            </div>
+
+            <div class="private-pdf-frame-wrap">
+              <iframe
+                id="stagePrivatePdfFrame"
+                title="Lecteur de document du stage FAST"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
 
     </div>
   </div>
