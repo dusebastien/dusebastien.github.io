@@ -1136,32 +1136,6 @@ const experienceData = {
   }
 };
 
-// =========================================================
-// EXPÉRIENCE — STAGE M1 CNRS / FAST
-// =========================================================
-
-const experienceData = {
-  cnrs: {
-    documentFolder: "Stage FAST",
-    title: "Stage M1 — CNRS / Laboratoire FAST",
-    text:
-      "Stage de recherche réalisé de juin à août 2026 au laboratoire FAST " +
-      "(Fluides, Automatique et Systèmes Thermiques) à Orsay. " +
-      "Le travail portait sur l’étude numérique, d’abord en deux dimensions " +
-      "puis en trois dimensions, d’un film liquide tombant sur un substrat corrugué. " +
-      "Ce stage m’a permis de travailler sur la simulation numérique appliquée " +
-      "à la mécanique des fluides et sur l’analyse de résultats de simulation.",
-    skills: [
-      "Simulation numérique",
-      "Mécanique des fluides",
-      "Modélisation 2D",
-      "Modélisation 3D",
-      "Analyse de résultats",
-      "Recherche scientifique"
-    ]
-  }
-};
-
 
 const experienceModal = document.getElementById("experienceModal");
 const experienceModalTitle = document.getElementById("experienceModalTitle");
