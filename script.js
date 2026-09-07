@@ -96,7 +96,7 @@ const projectData = {
  galleryLayout: "uniform-grid"
  },
  thermo: {
- documentFolder: "Calcul Scientifique",
+ documentFolder: "Méthodes numériques pour la dynamique",
  title: "Modélisation numérique des propriétés thermodynamiques et des ondes de choc",
  meta: "Février 2026 · Master · Sorbonne Université",
  text: "Développement d’un programme en Fortran 2018 pour modéliser les propriétés thermodynamiques de plusieurs gaz à capacités calorifiques variables, puis application à l’étude des ondes de choc normales. Le travail porte à la fois sur la mise en place d’une bibliothèque numérique et sur l’analyse des grandeurs aérodynamiques et thermodynamiques en fonction du nombre de Mach.",
@@ -205,7 +205,7 @@ const projectData = {
  ]
  },
  phase: {
- documentFolder: "Méthodes numériques pour la dynamique",
+ documentFolder: "Calcul Scientifique",
  title: "Diffusion thermique 2D avec changement de phase",
  meta: "Décembre 2025 · Master · Sorbonne Université",
  text: "Simulation numérique en Python de la solidification bidimensionnelle d’un milieu initialement liquide à l’aide d’une approche à front diffus. Le changement de phase est intégré dans une formulation enthalpique prenant en compte la chaleur latente, ce qui permet de résoudre une seule équation sur l’ensemble du domaine sans suivre explicitement l’interface solide-liquide.",
