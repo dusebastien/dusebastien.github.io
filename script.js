@@ -1128,16 +1128,12 @@ privatePdfOpenButton?.addEventListener("click", () => {
 const experienceData = {
   cnrs: {
     documentFolder: "Stage FAST",
-    title: "Stage M1 — CNRS / Laboratoire FAST",
+    title: "Stagiaire en laboratoire de recherche",
     text:
-      "Stage de recherche réalisé de juin à août 2026 au laboratoire FAST " +
-      "(Fluides, Automatique et Systèmes Thermiques) à Orsay. " +
-      "Le travail portait sur l’étude numérique, d’abord en deux dimensions " +
-      "puis en trois dimensions, d’un film liquide tombant sur un substrat corrugué. " +
-      "Ce stage m’a permis de travailler sur la simulation numérique appliquée " +
-      "à la mécanique des fluides et sur l’analyse de résultats de simulation.",
+      "Stage de recherche réalisé au laboratoire FAST du CNRS à Orsay, " +
+      "encadré par Georg Dietze et Sophie Mergui.",
     poster: "assets/stage-fast-poster.png",
-    posterAlt: "Poster du stage M1 au laboratoire FAST du CNRS",
+    posterAlt: "Poster du stage au laboratoire FAST du CNRS",
     skills: [
       "Simulation numérique",
       "Mécanique des fluides",

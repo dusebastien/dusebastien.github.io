@@ -1420,7 +1420,7 @@ footer {
 }
 
 #experienceModal .modal-dialog {
-  width: min(900px, calc(100% - 32px));
+  width: min(1180px, calc(100% - 32px));
   max-height: 88vh;
   margin: 6vh auto;
   overflow-y: auto;
@@ -1483,7 +1483,8 @@ footer {
 
 /* Poster du stage affiché dans la modale d’expérience */
 .experience-poster {
-  margin: 24px 0;
+  width: 100%;
+  margin: 28px 0;
 }
 
 .experience-poster[hidden] {
@@ -1492,6 +1493,7 @@ footer {
 
 .experience-poster a {
   display: block;
+  width: 100%;
 
   border: 1px solid var(--line);
   border-radius: 18px;
@@ -1503,7 +1505,7 @@ footer {
 
 .experience-poster img {
   width: 100%;
-  max-height: 62vh;
+  height: auto;
 
   display: block;
 
