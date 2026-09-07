@@ -499,34 +499,6 @@ const projectData = {
    "NumPy",
    "SciPy",
    "Matplotlib"
- ],
- gallerySections: [
-   {
-     layout: "grid-2",
-     featuredFirst: false,
-     images: [
-       {
-         src: "assets/projets/geothermie-temperatures.png",
-         alt: "Évolution annuelle de la température extérieure et de la température du sol au niveau des pieux géothermiques",
-         caption: "Températures — comparaison entre la température extérieure et la température du sol au niveau des pieux."
-       },
-       {
-         src: "assets/projets/geothermie-puissance-thermique.png",
-         alt: "Évolution annuelle des puissances thermiques demandées en chauffage et en climatisation",
-         caption: "Besoins du bâtiment — puissances thermiques demandées en chauffage et en climatisation."
-       },
-       {
-         src: "assets/projets/geothermie-puissance-compresseur.png",
-         alt: "Évolution annuelle de la puissance électrique consommée par le compresseur",
-         caption: "Compresseur — évolution de la puissance électrique consommée au cours de l’année."
-       },
-       {
-         src: "assets/projets/geothermie-cop.png",
-         alt: "Évolution annuelle du coefficient de performance en chauffage et en climatisation",
-         caption: "Performances — évolution du COP en modes chauffage et climatisation."
-       }
-     ]
-   }
  ]
  },
 };
@@ -1117,36 +1089,22 @@ privatePdfOpenButton?.addEventListener("click", () => {
 
 const experienceData = {
   cnrs: {
-    documentFolder: "Stage FAST",
     title: "Stage M1 — CNRS / Laboratoire FAST",
     text:
-      "Stage de recherche réalisé du 3 juin au 25 août 2026 au laboratoire FAST " +
+      "Stage de recherche réalisé de juin à août 2026 au laboratoire FAST " +
       "(Fluides, Automatique et Systèmes Thermiques) à Orsay. " +
-      "Le travail porte sur l’étude numérique bidimensionnelle puis tridimensionnelle " +
-      "d’un film liquide tombant sur des substrats plans et corrugués. " +
-      "Les simulations sont réalisées avec Basilisk C pour résoudre les équations " +
-      "de Navier–Stokes incompressibles en écoulement diphasique, avec suivi " +
-      "de l’interface par méthode VOF et maillage adaptatif. La démarche comprend " +
-      "une validation 2D à partir de résultats expérimentaux et numériques de la littérature, " +
-      "l’étude de parois corruguées sinusoïdales et rectangulaires, puis une extension " +
-      "aux simulations 3D afin d’analyser l’apparition de structures transverses.",
+      "Le travail portait sur l’étude numérique, d’abord en deux dimensions " +
+      "puis en trois dimensions, d’un film liquide tombant sur un substrat corrugué. " +
+      "Ce stage m’a permis de travailler sur la simulation numérique appliquée " +
+      "à la mécanique des fluides et sur l’analyse de résultats de simulation.",
     skills: [
-      "Basilisk C",
       "Simulation numérique",
       "Mécanique des fluides",
-      "Navier–Stokes",
-      "Écoulements diphasiques",
-      "Volume of Fluid (VOF)",
-      "Maillage adaptatif",
-      "Modélisation 2D / 3D",
-      "Validation numérique / expérimentale",
-      "Analyse de résultats"
-    ],
-    poster: {
-      src: "assets/stage-fast-poster.png",
-      alt: "Poster du stage au laboratoire FAST consacré à l’étude numérique 2D et 3D d’un film liquide tombant sur un substrat corrugué",
-      caption: "Poster de stage — étude numérique bidimensionnelle et tridimensionnelle d’un film liquide tombant sur un substrat corrugué."
-    }
+      "Modélisation 2D",
+      "Modélisation 3D",
+      "Analyse de résultats",
+      "Recherche scientifique"
+    ]
   }
 };
 
@@ -1154,9 +1112,6 @@ const experienceModal = document.getElementById("experienceModal");
 const experienceModalTitle = document.getElementById("experienceModalTitle");
 const experienceModalText = document.getElementById("experienceModalText");
 const experienceModalSkills = document.getElementById("experienceModalSkills");
-const experienceModalPoster = document.getElementById("experienceModalPoster");
-const experienceModalPosterImage = document.getElementById("experienceModalPosterImage");
-const experienceModalPosterCaption = document.getElementById("experienceModalPosterCaption");
 
 function openExperienceModal(experience) {
   if (
@@ -1177,20 +1132,6 @@ function openExperienceModal(experience) {
     chip.textContent = skill;
     experienceModalSkills.appendChild(chip);
   });
-
-  if (
-    experience.poster &&
-    experienceModalPoster &&
-    experienceModalPosterImage &&
-    experienceModalPosterCaption
-  ) {
-    experienceModalPosterImage.src = experience.poster.src;
-    experienceModalPosterImage.alt = experience.poster.alt || "";
-    experienceModalPosterCaption.textContent = experience.poster.caption || "";
-    experienceModalPoster.hidden = false;
-  } else if (experienceModalPoster) {
-    experienceModalPoster.hidden = true;
-  }
 
   experienceModal.classList.add("is-open");
   experienceModal.setAttribute("aria-hidden", "false");
