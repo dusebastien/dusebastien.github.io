@@ -474,7 +474,7 @@ const projectData = {
  ]
  },
  geothermal: {
- documentFolder: "Fondement de l'efficacité énergétique",
+ documentFolder: "Fondement de l'efficacité energétique",
  title: "Modélisation d’une pompe à chaleur géothermale",
  meta: "Décembre 2025 – janvier 2026 · Master · Sorbonne Université",
  text: "Modélisation numérique d’une pompe à chaleur géothermale eau/eau couplée à un champ de sondes verticales. Le modèle représente les transferts thermiques dans le sol par une équation de la chaleur bidimensionnelle avec diffusion et advection liée à l’écoulement de la nappe phréatique. Il a ensuite été enrichi pour distinguer les modes chauffage et climatisation et analyser l’évolution des performances énergétiques sur l’année.",
